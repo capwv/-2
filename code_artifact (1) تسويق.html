@@ -1,0 +1,1815 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مبادئ التسويق | المنصة الشاملة للمراجعة وامتحان الميدتيرم</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Cairo', 'Tajawal', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Cairo', 'Tajawal', sans-serif;
+      scroll-behavior: smooth;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: rgba(15, 23, 42, 0.25);
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: rgba(16, 185, 129, 0.5);
+      border-radius: 9999px;
+    }
+    .tab-active {
+      background: linear-gradient(135deg, #059669 0%, #2563eb 100%);
+      color: #ffffff !important;
+      box-shadow: 0 10px 25px -5px rgba(5, 150, 105, 0.45);
+      border-color: transparent !important;
+    }
+    .memo-paper {
+      background-image: radial-gradient(rgba(148, 163, 184, 0.12) 1px, transparent 0);
+      background-size: 20px 20px;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 min-h-screen transition-colors duration-300">
+
+  <!-- Sticky Header & Navigation -->
+  <header class="sticky top-0 z-50 backdrop-blur-xl bg-white/95 dark:bg-slate-900/95 border-b border-slate-200 dark:border-slate-800 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+      <div class="flex flex-col gap-3">
+        <!-- Top Row: Brand & Theme Toggle -->
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-emerald-600 to-blue-600 flex items-center justify-center text-white shadow-lg shadow-emerald-500/30">
+              <i class="fa-solid fa-bullhorn text-xl"></i>
+            </div>
+            <div>
+              <div class="flex flex-wrap items-center gap-2">
+                <h1 class="text-lg sm:text-xl font-black bg-clip-text text-transparent bg-gradient-to-l from-emerald-600 via-teal-500 to-blue-600 dark:from-emerald-400 dark:via-teal-300 dark:to-blue-400">
+                  مبادئ التسويق (Principles of Marketing)
+                </h1>
+                <span class="text-xs px-2.5 py-0.5 rounded-full bg-amber-500/15 text-amber-600 dark:text-amber-400 font-bold border border-amber-500/30">
+                  امتحان الإثنين 9 نوفمبر
+                </span>
+                <span class="text-xs px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-bold border border-emerald-500/30">
+                  شامل الـ 8 أسئلة المتوقعة + المطبوعة
+                </span>
+              </div>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                شرح تفصيلي وافٍ • مذكرة إدارية جاهزة • بحوث ونظم معلومات التسويق • التخطيط الحكومي • امتحان الميدتيرم (10 صح وغلط بالتعليل + 2 مقالي)
+              </p>
+            </div>
+          </div>
+
+          <button onclick="toggleTheme()" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-emerald-500/10 transition-all" title="تغيير المظهر">
+            <i id="theme-icon" class="fa-solid fa-sun text-amber-400 text-lg"></i>
+          </button>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <nav class="flex items-center gap-1.5 overflow-x-auto custom-scrollbar pb-1">
+          <button onclick="switchTab('tab1')" id="btn-tab1" class="tab-btn tab-active px-3 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+            <i class="fa-solid fa-compass"></i>
+            <span>١. مدخل التسويق وتطوره (س١ + س٢)</span>
+          </button>
+          <button onclick="switchTab('tab2')" id="btn-tab2" class="tab-btn px-3 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+            <i class="fa-solid fa-earth-americas"></i>
+            <span>٢. البيئة التسويقية وتحليلها (س٧-هـ)</span>
+          </button>
+          <button onclick="switchTab('tab3')" id="btn-tab3" class="tab-btn px-3 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+            <i class="fa-solid fa-file-contract"></i>
+            <span>٣. نظم المعلومات والمذكرة الإدارية (س٣ + س٤)</span>
+          </button>
+          <button onclick="switchTab('tab4')" id="btn-tab4" class="tab-btn px-3 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+            <i class="fa-solid fa-magnifying-glass-chart"></i>
+            <span>٤. بحوث التسويق الشاملة (س٥)</span>
+          </button>
+          <button onclick="switchTab('tab5')" id="btn-tab5" class="tab-btn px-3 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+            <i class="fa-solid fa-sitemap"></i>
+            <span>٥. التخطيط والتخطيط الحكومي (س٦ + س٨)</span>
+          </button>
+          <button onclick="switchTab('tab6')" id="btn-tab6" class="tab-btn px-3 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all flex items-center gap-1.5 bg-amber-500/15 text-amber-600 dark:text-amber-400 border border-amber-500/30">
+            <i class="fa-solid fa-star"></i>
+            <span>٦. الكبسولة: إجابات الـ ٨ أسئلة مباشرة</span>
+          </button>
+          <button onclick="switchTab('tab7')" id="btn-tab7" class="tab-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all flex items-center gap-1.5 bg-rose-500/15 text-rose-600 dark:text-rose-400 border border-rose-500/30">
+            <i class="fa-solid fa-pen-to-square"></i>
+            <span>٧. امتحان الميدتيرم (١٠ صح وغلط بالتعليل + ٢ مقالي)</span>
+          </button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+
+    <!-- ==========================================
+         TAB 1: مدخل التسويق وتطوره وأهدافه وتوجهاته (س1 + س2)
+         ========================================== -->
+    <section id="tab1" class="tab-content space-y-8">
+      <!-- Hero Banner -->
+      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-l from-emerald-900 via-teal-900 to-blue-950 text-white p-6 sm:p-8 shadow-xl">
+        <div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+          <div class="space-y-2 max-w-3xl">
+            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-white/15 backdrop-blur-sm">
+              <i class="fa-solid fa-book-open"></i> المحور الأول والثاني • إجابة السؤال (١) والسؤال (٢) والسؤال (٧-و، ي)
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-black">مدخل إلى التسويق: التعريفات، المراحل التاريخية، الأهداف، والتوجهات المفاهيمية</h2>
+            <p class="text-emerald-100 text-sm sm:text-base leading-relaxed">
+              تغطي هذه الوحدة جميع التعريفات المتعددة للتسويق، مراحل تطور الفكر التسويقي الأربعة (الإنتاجي، البيعي، التسويقي، الاجتماعي)، تطور مكانة التسويق داخل المؤسسة عبر 5 مراحل، أهداف التسويق للمؤسسة والمستهلك، التوجهات المفاهيمية السبعة، والمزيج التسويقي الممتد (7Ps).
+            </p>
+          </div>
+          <div class="grid grid-cols-2 gap-3 text-center shrink-0">
+            <div class="bg-white/10 backdrop-blur-md p-3.5 rounded-2xl border border-white/15">
+              <div class="text-xl font-black text-amber-300">6 تعريفات</div>
+              <div class="text-xs text-emerald-100 mt-0.5">متعددة للتسويق</div>
+            </div>
+            <div class="bg-white/10 backdrop-blur-md p-3.5 rounded-2xl border border-white/15">
+              <div class="text-xl font-black text-teal-300">4 مراحل</div>
+              <div class="text-xs text-emerald-100 mt-0.5">لتطور المفهوم التسويقي</div>
+            </div>
+            <div class="bg-white/10 backdrop-blur-md p-3.5 rounded-2xl border border-white/15">
+              <div class="text-xl font-black text-blue-300">12 هدفاً</div>
+              <div class="text-xs text-emerald-100 mt-0.5">للمؤسسة (7) وللمستهلك (5)</div>
+            </div>
+            <div class="bg-white/10 backdrop-blur-md p-3.5 rounded-2xl border border-white/15">
+              <div class="text-xl font-black text-rose-300">7 توجهات</div>
+              <div class="text-xs text-emerald-100 mt-0.5">مفاهيمية حديثة</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1.1 التعريفات المتعددة للتسويق (إجابة س1 الشق الأول + س7-و) -->
+      <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-4">
+          <div class="flex items-center gap-3">
+            <span class="w-9 h-9 rounded-xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-black">1</span>
+            <div>
+              <h3 class="text-xl font-extrabold">التعريفات المتعددة لمدخل التسويق ومفهومه (لماذا لا يوجد تعريف واحد فقط؟)</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400">المطبوعة ص 8 – 9 • إجابة نموذجية للسؤال الأول والسؤال السابع (و)</p>
+            </div>
+          </div>
+          <span class="text-xs font-bold px-3 py-1 rounded-full bg-rose-500/15 text-rose-600 dark:text-rose-400">
+            تنبيه امتحان: عبارة "هناك تعريف واحد فقط للتسويق" خاطئة (×)
+          </span>
+        </div>
+
+        <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed bg-slate-50 dark:bg-slate-950 p-4 rounded-2xl border border-slate-200 dark:border-slate-800">
+          <strong>تمهيد علمي:</strong> لا يقتصر التسويق على مجرد عملية البيع أو الترويج، بل هو علم وفن متكامل. وقد تعددت تعريفات التسويق بتعدد زوايا النظر إليه (إدارية، اجتماعية، تنظيمية، استراتيجية)، وفيما يلي أهم <strong>6 تعريفات أساسية</strong> وردت في المقرر:
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-xs sm:text-sm">
+          <!-- تعريف 1 -->
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-emerald-600 dark:text-emerald-400">١. التعريف الإداري والربحي</span>
+              <i class="fa-solid fa-chart-line text-emerald-500"></i>
+            </div>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+              "هو <strong>العملية الإدارية</strong> التي يتم من خلالها تحديد، وتوقع، وتلبية احتياجات العملاء <strong>بطريقة مربحة</strong>." (يركز على تحليل احتياجات السوق وتقديم الحلول المناسبة بربحية).
+            </p>
+          </div>
+
+          <!-- تعريف 2 -->
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-blue-600 dark:text-blue-400">٢. التعريف التنظيمي والقيمي (AMA)</span>
+              <i class="fa-solid fa-building-Flag text-blue-500"></i>
+            </div>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+              "هو <strong>الوظيفة التنظيمية</strong> ومجموعة العمليات التي تشمل <strong>خلق، وإيصال، وتقديم القيمة للعملاء</strong> وإدارة العلاقات معهم بطريقة تعود بالفائدة على المنظمة وأصحاب المصالح."
+            </p>
+          </div>
+
+          <!-- تعريف 3 -->
+          <div class="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-amber-600 dark:text-amber-400">٣. تعريف فيليب كوتلر (Philip Kotler) ★</span>
+              <i class="fa-solid fa-user-graduate text-amber-500"></i>
+            </div>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+              "عملية <strong>اجتماعية وإدارية</strong> يحصل من خلالها الأفراد والمجموعات على ما يحتاجونه ويرغبون فيه من خلال <strong>خلق، وعرض، وتبادل المنتجات ذات القيمة</strong> مع الآخرين."
+            </p>
+          </div>
+
+          <!-- تعريف 4 -->
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-purple-600 dark:text-purple-400">٤. التعريف الاستراتيجي الترويجي</span>
+              <i class="fa-solid fa-chess-knight text-purple-500"></i>
+            </div>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+              "تحديد <strong>الاستراتيجيات اللازمة</strong> لترويج المنتجات أو الخدمات لزيادة <strong>رضا العملاء</strong> والحصول على <strong>حصة أكبر في السوق</strong>."
+            </p>
+          </div>
+
+          <!-- تعريف 5 -->
+          <div class="p-4 rounded-2xl bg-indigo-500/10 border border-indigo-500/30 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-indigo-600 dark:text-indigo-400">٥. تعريف د. محمود حسن عبيدات ★</span>
+              <i class="fa-solid fa-book-bookmark text-indigo-500"></i>
+            </div>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+              "مجموعة من الأنشطة الإدارية والاجتماعية التي تهدف إلى خلق وتقديم وتبادل العروض التي تشبع حاجات ورغبات الأفراد والمجموعات، من خلال <strong>تفاعل المنظمة مع البيئة الخارجية</strong> بما يحقق المنفعة للمنظمة والمستهلك."
+            </p>
+          </div>
+
+          <!-- تعريف 6 الشامل -->
+          <div class="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-emerald-600 dark:text-emerald-400">٦. التعريف الشامل للتسويق (الخلاصة)</span>
+              <i class="fa-solid fa-award text-emerald-500"></i>
+            </div>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+              "هو <strong>علم وفن</strong> يُعنى بتحديد احتياجات ورغبات العملاء الحاليين والمحتملين، وتطوير وتقديم منتجات أو خدمات ذات قيمة تلبيها عبر عملية إدارية واجتماعية متكاملة (تحليل، تخطيط، تنفيذ، تواصل فعال) لبناء علاقات طويلة الأمد وتحقيق الأهداف المؤسسية."
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1.2 تطور المفهوم التسويقي عبر 4 مراحل تاريخية (المطبوعة ص 9 - 11) -->
+      <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+        <div class="flex items-center gap-3 border-b border-slate-200 dark:border-slate-800 pb-4">
+          <span class="w-9 h-9 rounded-xl bg-blue-500/15 text-blue-600 dark:text-blue-400 flex items-center justify-center font-black">2</span>
+          <div>
+            <h3 class="text-xl font-extrabold">تطور المفهوم التسويقي عبر المراحل التاريخية الأربع (الشق الثاني من السؤال ١)</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400">المطبوعة ص 9 و 10 (شرح المراحل الأربع + جدول المقارنة التفصيلي رقم 01)</p>
+          </div>
+        </div>
+
+        <!-- بطاقات المراحل الأربع -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-xs sm:text-sm">
+          <div class="p-4 rounded-2xl bg-slate-100 dark:bg-slate-800/80 border-t-4 border-slate-500 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="font-black text-slate-700 dark:text-slate-200">أ. التوجه الإنتاجي</span>
+              <span class="px-2 py-0.5 rounded bg-slate-500/20 font-mono text-xs font-bold">1900 - 1930</span>
+            </div>
+            <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+              • المحرك الرئيسي هو <strong>الإنتاج بكميات كبيرة</strong> لأن الطلب أكبر من العرض والمنافسة ضعيفة.
+              <br>• الفرضية: العملاء سيشترون طالما السلعة متاحة وبسعر معقول ("تصريف ما تم إنتاجه").
+              <br>• لا يوجد اهتمام بجودة السلعة أو رغبات العميل بعمق.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-amber-500/10 border-t-4 border-amber-500 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="font-black text-amber-600 dark:text-amber-400">ب. التوجه البيعي</span>
+              <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-600 dark:text-amber-300 font-mono text-xs font-bold">1930 - 1950</span>
+            </div>
+            <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+              • ظهر <strong>فائض في الإنتاج</strong> فتحول التركيز نحو <strong>البيع</strong>.
+              <br>• الفرضية: "بيع ما تم إنتاجه" باستخدام تكتيكات بيعية عدوانية، عروض ترويجية، وإعلانات مكثفة لإقناع المستهلك بالشراء دون تركيز كبير على احتياجاته الحقيقية.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-blue-500/10 border-t-4 border-blue-500 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="font-black text-blue-600 dark:text-blue-400">ج. التوجه التسويقي</span>
+              <span class="px-2 py-0.5 rounded bg-blue-500/20 text-blue-600 dark:text-blue-300 font-mono text-xs font-bold">بعد عام 1950</span>
+            </div>
+            <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+              • بعد الحرب العالمية الثانية، أدركت الشركات أن النجاح يتطلب <strong>فهم رغبات واحتياجات العملاء أولاً</strong> عبر البحوث التسويقية.
+              <br>• الفرضية: <strong>"إنتاج ما يمكن تسويقه"</strong> وتكامل عناصر المزيج التسويقي (4Ps) وبناء علاقة مستدامة مع العميل.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-emerald-500/10 border-t-4 border-emerald-500 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="font-black text-emerald-600 dark:text-emerald-400">د. التوجه الاجتماعي</span>
+              <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-600 dark:text-emerald-300 font-mono text-xs font-bold">عام 1971</span>
+            </div>
+            <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+              • برزت أهمية <strong>المسؤولية الاجتماعية والبيئية</strong> والأخلاقية.
+              <br>• الفرضية: تحقيق التوازن بين <strong>3 مصالح</strong> (أرباح المؤسسة + إشباع حاجات المستهلك + مصلحة المجتمع وحماية البيئة والاستدامة).
+            </p>
+          </div>
+        </div>
+
+        <!-- جدول المقارنة الشامل رقم 01 (ص 10 و 11) -->
+        <div class="overflow-x-auto pt-2">
+          <table class="w-full text-xs sm:text-sm text-right border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden">
+            <thead class="bg-slate-800 text-white">
+              <tr>
+                <th class="p-3">وجه المقارنة</th>
+                <th class="p-3">١. المفهوم الإنتاجي</th>
+                <th class="p-3">٢. المفهوم البيعي</th>
+                <th class="p-3">٣. المفهوم التسويقي</th>
+                <th class="p-3">٤. المفهوم الاجتماعي</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200 dark:divide-slate-800 bg-white dark:bg-slate-900">
+              <tr>
+                <td class="p-3 font-bold bg-slate-50 dark:bg-slate-950">التركيز الأساسي</td>
+                <td class="p-3">إنتاج أكبر كمية ممكنة من السلع بغض النظر عن الجودة.</td>
+                <td class="p-3">السلعة وبيع ما تم إنتاجه دون النظر لحاجات المستهلك.</td>
+                <td class="p-3 font-semibold text-blue-600 dark:text-blue-400">تحديد حاجات ورغبات المستهلكين وإمكانياتهم الشرائية وإشباعها.</td>
+                <td class="p-3 font-semibold text-emerald-600 dark:text-emerald-400">تقديم السلع المناسبة للمستهلك مع الحفاظ على البيئة وتوفير حياة أفضل للمجتمع.</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-bold bg-slate-50 dark:bg-slate-950">الفرضية الأساسية</td>
+                <td class="p-3">تصريف ما تم إنتاجه ومقابلة الطلب.</td>
+                <td class="p-3">بيع ما تم إنتاجه وإقناع المستهلكين بالشراء.</td>
+                <td class="p-3">إنتاج ما يمكن تسويقه وتطوير المزيج التسويقي المنسجم.</td>
+                <td class="p-3">إنتاج ما يمكن تسويقه مع اعتبار المؤثرات البيئية الخارجية الموجه الأساسي.</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-bold bg-slate-50 dark:bg-slate-950">تحقيق الربحية</td>
+                <td class="p-3">من خلال التصريف الكامل للسلعة المنتجة.</td>
+                <td class="p-3">عن طريق بيع أكبر كمية ممكنة من السلع.</td>
+                <td class="p-3">من خلال إشباع حاجات المستهلكين لآجال طويلة.</td>
+                <td class="p-3">من خلال إيجاد التوازن بين مصالح المؤسسة والمستهلك والمجتمع معاً.</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-bold bg-slate-50 dark:bg-slate-950">نوع التخطيط</td>
+                <td class="p-3">تخطيط قصير الأجل.</td>
+                <td class="p-3">تخطيط قصير الأجل.</td>
+                <td class="p-3 font-bold">قصير ومتوسط وطويل الأجل.</td>
+                <td class="p-3 font-bold">قصير ومتوسط وطويل الأجل.</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-bold bg-slate-50 dark:bg-slate-950">الفعاليات الأكثر أهمية</td>
+                <td class="p-3">الإنتاج هو الأهم (لا دور للتسعير أو الترويج أو التوزيع).</td>
+                <td class="p-3">التوسع في منافذ التوزيع وزيادة الإنفاق على الترويج والإعلان.</td>
+                <td class="p-3">تكامل عناصر المزيج التسويقي الأربعة (السلعة، السعر، التوزيع، الترويج).</td>
+                <td class="p-3">كافة عناصر المزيج التسويقي مع زيادة أهمية البيئة الاجتماعية وحماية المستهلك.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- المراحل الخمس لتطور النظرة للتسويق داخل المؤسسة (الشكل 01 ص 11 و 12) -->
+        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-3">
+          <h4 class="font-extrabold text-sm sm:text-base text-teal-600 dark:text-teal-400 flex items-center gap-2">
+            <i class="fa-solid fa-circle-nodes"></i>
+            تطور إدراك المؤسسة لأهمية وظيفة التسويق (المراحل الـ 5 - الشكل رقم 01 ص 11-12):
+          </h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 text-xs">
+            <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+              <div class="font-bold text-slate-700 dark:text-slate-200">١. المرحلة الأولى (أ)</div>
+              <p class="text-slate-500 mt-1">التساوي في الأهمية بين وظيفة التسويق وبقية الوظائف (الإنتاج، المالية، الموارد البشرية).</p>
+            </div>
+            <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+              <div class="font-bold text-blue-600 dark:text-blue-400">٢. المرحلة الثانية (ب)</div>
+              <p class="text-slate-500 mt-1">نتيجة لنقص الطلب، تعطي المنظمة اهتماماً ومساحة أكبر لوظيفة التسويق قياساً بالوظائف الأخرى.</p>
+            </div>
+            <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+              <div class="font-bold text-indigo-600 dark:text-indigo-400">٣. المرحلة الثالثة (ج)</div>
+              <p class="text-slate-500 mt-1">تصبح إدارة التسويق هي <strong>الوظيفة المركزية</strong> في قلب الدائرة وتدور حولها باقي الوظائف.</p>
+            </div>
+            <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+              <div class="font-bold text-amber-600 dark:text-amber-400">٤. المرحلة الرابعة (د)</div>
+              <p class="text-slate-500 mt-1">يصبح <strong>المستهلك</strong> هو المركز والمنطلق الأساسي، ويتساوى التسويق مع باقي الإدارات لخدمته.</p>
+            </div>
+            <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-emerald-500/40">
+              <div class="font-bold text-emerald-600 dark:text-emerald-400">٥. المرحلة الخامسة (هـ)</div>
+              <p class="text-slate-500 mt-1"><strong>المستهلك في المركز</strong>، و<strong>التسويق هو الحلقة المحيطة به مباشرة</strong> للاتصال به، وباقي الوظائف مساندة للتسويق.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1.3 أهداف التسويق وأهميته والتوجهات المفاهيمية (إجابة س2 + س7-ي) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <!-- أهداف التسويق للمؤسسة والمستهلك (7 cols) -->
+        <div class="lg:col-span-7 bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-5">
+          <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
+            <div>
+              <h3 class="text-lg font-extrabold flex items-center gap-2">
+                <i class="fa-solid fa-bullseye text-emerald-500"></i>
+                أهداف التسويق للمؤسسة وللمستهلك (س٢ + س٧-ي)
+              </h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400">المطبوعة ص 13 – 14 (وفقاً لدكتور محمود عبيدات)</p>
+            </div>
+            <span class="text-xs font-bold px-2.5 py-1 rounded bg-emerald-500/15 text-emerald-600 dark:text-emerald-400">✓ عبارة صحيحة في س7</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+            <!-- أهداف المؤسسة (7) -->
+            <div class="p-4 rounded-2xl bg-blue-500/5 border border-blue-500/20 space-y-2">
+              <div class="font-black text-blue-600 dark:text-blue-400 text-sm">أولاً: أهداف التسويق بالنسبة للمؤسسة (7 أهداف):</div>
+              <ul class="space-y-1.5 text-slate-700 dark:text-slate-300">
+                <li><strong>1. زيادة الحصة السوقية:</strong> تحسين الموقع التنافسي في السوق.</li>
+                <li><strong>2. تحقيق الأرباح:</strong> زيادة المبيعات والأرباح لضمان الاستدامة والنمو.</li>
+                <li><strong>3. تطوير العلامة التجارية:</strong> بناء الهوية المؤسسية وزيادة ثقة العملاء.</li>
+                <li><strong>4. فهم احتياجات السوق:</strong> جمع وتحليل البيانات حول رغبات العملاء.</li>
+                <li><strong>5. تحسين جودة الخدمة:</strong> تقديم خدمات عالية الجودة لزيادة الرضا.</li>
+                <li><strong>6. تحقيق الابتكار:</strong> تطوير منتجات جديدة وتحسين الحالية.</li>
+                <li><strong>7. بناء علاقات قوية مع العملاء:</strong> تعزيز الولاء عبر القيمة المضافة.</li>
+              </ul>
+            </div>
+
+            <!-- أهداف المستهلك (5) + أهمية التسويق -->
+            <div class="space-y-3">
+              <div class="p-4 rounded-2xl bg-emerald-500/5 border border-emerald-500/20 space-y-2">
+                <div class="font-black text-emerald-600 dark:text-emerald-400 text-sm">ثانياً: أهداف التسويق بالنسبة للمستهلك (5 أهداف):</div>
+                <ul class="space-y-1.5 text-slate-700 dark:text-slate-300">
+                  <li><strong>1. تلبية احتياجات المستهلكين:</strong> تقديم سلع وخدمات تشبع رغباتهم بفعالية.</li>
+                  <li><strong>2. توفير المعلومات:</strong> تقديم معلومات دقيقة لاتخاذ قرارات شراء مستنيرة.</li>
+                  <li><strong>3. تحسين تجربة العميل:</strong> تصميم منتجات تتماشى مع توقعاتهم.</li>
+                  <li><strong>4. تعزيز القيمة المدركة:</strong> شعور المستهلك بالحصول على قيمة مضافة.</li>
+                  <li><strong>5. بناء علاقات طويلة الأمد:</strong> تعزيز الولاء وتكرار الشراء.</li>
+                </ul>
+              </div>
+
+              <div class="p-3.5 rounded-2xl bg-slate-100 dark:bg-slate-800/70 space-y-1">
+                <div class="font-bold text-amber-600 dark:text-amber-400">ثالثاً: أهمية التسويق (7 نقاط - ص 12):</div>
+                <p class="text-slate-600 dark:text-slate-300">
+                  1. تلبية احتياجات العملاء • 2. بناء العلامة التجارية • 3. زيادة المبيعات والإيرادات • 4. تحليل السوق • 5. خلق علاقة مع العملاء • 6. تعزيز التنافسية • 7. التوسع في الأسواق الجديدة.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- التوجهات المفاهيمية السبعة للتسويق (5 cols) -->
+        <div class="lg:col-span-5 bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+          <div class="border-b border-slate-200 dark:border-slate-800 pb-3">
+            <h3 class="text-lg font-extrabold flex items-center gap-2">
+              <i class="fa-solid fa-Compass text-indigo-500"></i>
+              التوجهات المفاهيمية للتسويق (الشق الثالث من س٢)
+            </h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400">المطبوعة ص 14 (7 توجهات مفاهيمية حديثة)</p>
+          </div>
+
+          <div class="space-y-2 text-xs">
+            <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+              <strong class="text-indigo-600 dark:text-indigo-400">1. التوجه نحو المستهلك:</strong> فهم احتياجات ورغبات المستهلكين وتلبية توقعاتهم عبر تحليل سلوكهم.
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+              <strong class="text-indigo-600 dark:text-indigo-400">2. التوجه نحو القيمة:</strong> تقديم قيمة مضافة للمستهلك من خلال جودة المنتجات أو تجربة العميل.
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+              <strong class="text-indigo-600 dark:text-indigo-400">3. التوجه نحو العلاقة:</strong> بناء علاقات طويلة الأمد مع العملاء وتعزيز ولائهم بالتفاعل المستمر.
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+              <strong class="text-indigo-600 dark:text-indigo-400">4. التوجه نحو الابتكار:</strong> الابتكار المستمر في المنتجات والخدمات وأساليب التسويق.
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+              <strong class="text-indigo-600 dark:text-indigo-400">5. التوجه نحو الاستدامة:</strong> مراعاة المسؤولية الاجتماعية والبيئية في القرارات التسويقية.
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+              <strong class="text-indigo-600 dark:text-indigo-400">6. التوجه الرقمي:</strong> استخدام التكنولوجيا والإنترنت ومنصات التواصل الاجتماعي للتفاعل مع العملاء.
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+              <strong class="text-indigo-600 dark:text-indigo-400">7. التوجه نحو التحليل والبيانات:</strong> استخدام البيانات الضخمة (Big Data) لتحليل اتجاهات وأنماط السوق.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1.4 وظائف المنظمة والمزيج التسويقي الممتد 7Ps والإطار الزمني (المحور الثاني ص 18 - 23) -->
+      <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+        <h3 class="text-lg font-extrabold flex items-center gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
+          <i class="fa-solid fa-layer-group text-teal-500"></i>
+          خلاصة المحور الثاني: وظائف المنظمة، المزيج التسويقي الممتد (7Ps)، والإطار العام لوظيفة التسويق
+        </h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+          <!-- وظائف المنظمة -->
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-2">
+            <div class="font-bold text-blue-600 dark:text-blue-400 text-sm">١. وظائف المنظمة (ص 18):</div>
+            <p class="text-slate-600 dark:text-slate-300">
+              • <strong>الوظائف الرئيسية (الأصلية Principal):</strong> 3 وظائف لا يمكن للمنظمة البقاء بدونها: <strong>(1. الإنتاج، 2. التسويق، 3. التمويل)</strong>.
+              <br>• <strong>الوظائف الثانوية (المساعدة Subsidiary):</strong> مثل الأفراد، العلاقات العامة، الشؤون القانونية (تخفف العبء عن الوظائف الأساسية).
+            </p>
+          </div>
+
+          <!-- المزيج التسويقي 4Ps + 3Ps = 7Ps -->
+          <div class="p-4 rounded-2xl bg-emerald-500/5 border border-emerald-500/20 space-y-2">
+            <div class="font-bold text-emerald-600 dark:text-emerald-400 text-sm">٢. المزيج التسويقي للسلع والخدمات (7Ps - ص 20):</div>
+            <p class="text-slate-600 dark:text-slate-300">
+              • <strong>المزيج الرباعي للسلع (4Ps):</strong> 1. المنتج (Product)، 2. المكان/التوزيع (Place)، 3. السعر (Price)، 4. الترويج (Promotion).
+              <br>• <strong>أُضيفت 3 عناصر للخدمات ليصبح (7Ps):</strong> 5. الدليل المادي/الملموسية (Physical Evidence)، 6. الأفراد (People)، 7. عملية تقديم الخدمة (Process).
+            </p>
+          </div>
+
+          <!-- الإطار العام لوظيفة التسويق -->
+          <div class="p-4 rounded-2xl bg-amber-500/5 border border-amber-500/20 space-y-2">
+            <div class="font-bold text-amber-600 dark:text-amber-400 text-sm">٣. مراحل عمل وظيفة التسويق (ص 21-22):</div>
+            <p class="text-slate-600 dark:text-slate-300">
+              1. <strong>قبل بدء الإنتاج:</strong> دراسة السوق وتحديد الحاجات غير المشبعة وتقديم أفكار المنتجات.
+              <br>2. <strong>أثناء الإنتاج:</strong> توفير وتخزين مستلزمات الإنتاج والخامات.
+              <br>3. <strong>بعد تمام الإنتاج:</strong> البيع الشخصي، الإعلان، تدريب رجال البيع، النقل والتحصيل.
+              <br>4. <strong>بعد تمام البيع:</strong> التركيب، الصيانة، الإصلاح، الضمان، وقياس رضا العملاء.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         TAB 2: البيئة التسويقية وتحليلها (المحور الثالث + س7-هـ)
+         ========================================== -->
+    <section id="tab2" class="tab-content hidden space-y-8">
+      <!-- Hero Banner -->
+      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-l from-teal-900 via-cyan-900 to-slate-900 text-white p-6 sm:p-8 shadow-xl">
+        <div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+          <div class="space-y-2 max-w-3xl">
+            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-white/15 backdrop-blur-sm">
+              <i class="fa-solid fa-earth-americas"></i> المحور الثالث (ص 24 – 33) • إجابة السؤال السابع (هـ)
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-black">البيئة التسويقية: المفهوم، الخصائص الخمس، المكونات، وأدوات التحليل الاستراتيجي</h2>
+            <p class="text-cyan-100 text-sm sm:text-base leading-relaxed">
+              تغطي هذه الوحدة تعريفات البيئة التسويقية، مميزاتها وخصائصها الخمس (التعقد، العدائية، عدم التأكد، الاعتمادية، التنوع)، مكونات البيئة الداخلية والخارجية (الكلية والجزئية)، وأدوات التحليل البيئي (SWOT, PESTEL, Porter's 5 Forces) مع دراسات حالة الشركات.
+            </p>
+          </div>
+          <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/15 text-center shrink-0">
+            <div class="text-xs text-cyan-200">سؤال الامتحان (س٧ - هـ)</div>
+            <div class="text-base font-black text-rose-300 mt-1">"لا توجد خصائص للبيئة التسويقية" (×)</div>
+            <div class="text-xs text-white mt-1">لها 5 خصائص رئيسية: التعقد، العدائية، عدم التأكد، الاعتمادية، التنوع</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2.1 تعريف البيئة التسويقية وخصائصها الخمس (ص 25 - 26) -->
+      <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-4">
+          <div class="flex items-center gap-3">
+            <span class="w-9 h-9 rounded-xl bg-teal-500/15 text-teal-600 dark:text-teal-400 flex items-center justify-center font-black">1</span>
+            <div>
+              <h3 class="text-xl font-extrabold">مفهوم البيئة التسويقية ومميزاتها (خصائصها) الخمس</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400">المطبوعة ص 25 و 26 • الإجابة النموذجية لتعليل خطأ عبارة "لا توجد خصائص للبيئة التسويقية"</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-teal-500/10 border border-teal-500/20 text-xs sm:text-sm space-y-1.5">
+          <div class="font-bold text-teal-700 dark:text-teal-300">التعريف الشامل للبيئة التسويقية (ص 25):</div>
+          <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+            هي مجموعة العوامل والمحددات والقوى المحيطة بالمؤسسة <strong>داخلياً وخارجياً</strong> والتي تؤثر على قدرتها في تطوير وتنفيذ استراتيجيات التسويق وبناء علاقات ناجحة مع عملائها المستهدفين؛ فهي تمنحها <strong>فرصاً (Opportunities)</strong> كما قد تعيقها <strong>بتهديدات (Threats)</strong> يجب التكيف معها.
+          </p>
+        </div>
+
+        <!-- الخصائص الخمس للبيئة التسويقية -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 text-xs">
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1.5">
+            <div class="font-black text-blue-600 dark:text-blue-400 text-sm">١. التعقد (Complexity)</div>
+            <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+              بيئة مركبة ومتداخلة يصعب الفصل بين أجزائها؛ فمنها ما يؤثر مباشرة (كالبيئة التنافسية) ومنها غير مباشر (كالمتغيرات الوطنية والدولية).
+            </p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1.5">
+            <div class="font-black text-rose-600 dark:text-rose-400 text-sm">٢. العدائية (Hostility)</div>
+            <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+              تتصف البيئة العدائية بقلة الموارد وشدة المنافسة وعدم قبول العملاء لمخرجات المؤسسة، عكس البيئة الهادئة الغنية بالموارد قليلة المنافسة.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 space-y-1.5">
+            <div class="font-black text-amber-600 dark:text-amber-400 text-sm">٣. عدم التأكد (Uncertainty) ★</div>
+            <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+              صعوبة تحديد احتمالية وقوع الحدث لـ <strong>3 حالات</strong>: (1) نقص المعلومات، (2) عدم القدرة على توقع أثر المتغيرات، (3) استحالة تحديد احتمالية الحدث.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1.5">
+            <div class="font-black text-indigo-600 dark:text-indigo-400 text-sm">٤. الاعتمادية (Interdependence)</div>
+            <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+              اشتراك المؤسسات في الموارد النادرة يخلق اعتماداً متبادلاً، وتسعى المؤسسة الفعالة للمحافظة على استقلاليتها وتجنب التبعية للآخرين.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1.5">
+            <div class="font-black text-emerald-600 dark:text-emerald-400 text-sm">٥. التنوع (Diversity)</div>
+            <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+              تعدد القطاعات من عملاء وموزعين وموردين ذوي تفضيلات ومطالب متمايزة على انتشار جغرافي واسع.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2.2 مكونات البيئة التسويقية: الداخلية والخارجية (الكلية والجزئية) ص 27 - 30 -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- البيئة الداخلية -->
+        <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
+          <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
+            <h4 class="font-extrabold text-blue-600 dark:text-blue-400">١. البيئة الداخلية (Internal)</h4>
+            <span class="text-xs px-2 py-0.5 rounded bg-blue-500/10 text-blue-500 font-bold">نقاط القوة والضعف</span>
+          </div>
+          <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+            متغيرات <strong>يمكن التحكم فيها</strong> بواسطة إدارة المنظمة، وتشمل:
+          </p>
+          <ul class="text-xs space-y-1.5 text-slate-700 dark:text-slate-300">
+            <li>• الإمكانيات والموارد المالية والبشرية والتكنولوجية.</li>
+            <li>• المهارات التسويقية والإنتاجية ونظم التسويق.</li>
+            <li>• إمكانيات البحث والتطوير (R&D) وإدارة المعرفة.</li>
+            <li>• الهيكل التنظيمي والثقافة التنظيمية للمؤسسة.</li>
+          </ul>
+        </div>
+
+        <!-- البيئة الخارجية الكلية -->
+        <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
+          <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
+            <h4 class="font-extrabold text-purple-600 dark:text-purple-400">٢. البيئة الخارجية الكلية (Macro)</h4>
+            <span class="text-xs px-2 py-0.5 rounded bg-purple-500/10 text-purple-500 font-bold">عامة / غير مباشرة</span>
+          </div>
+          <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+            تؤثر بصفة غير مباشرة وفي المدى البعيد، وتتكون من <strong>5 بيئات</strong>:
+          </p>
+          <ul class="text-xs space-y-1.5 text-slate-700 dark:text-slate-300">
+            <li><strong>1. الاجتماعية والديمغرافية:</strong> القيم، حجم السكان، العمر، الدخل، التعليم.</li>
+            <li><strong>2. الاقتصادية:</strong> الدخل، الطلب، التضخم، دورة الأعمال، السياسات النقدية والمالية.</li>
+            <li><strong>3. التكنولوجية:</strong> التطور الفني، الأتمتة، البحوث والتطوير.</li>
+            <li><strong>4. السياسية والقانونية:</strong> التشريعات، المواصفات القياسية، حماية المستهلك، الأسعار الجبرية.</li>
+            <li><strong>5. الطبيعية:</strong> نقص المواد الأولية، ارتفاع أسعار الطاقة، التلوث البيئي.</li>
+          </ul>
+        </div>
+
+        <!-- البيئة الخارجية الجزئية -->
+        <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
+          <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
+            <h4 class="font-extrabold text-emerald-600 dark:text-emerald-400">٣. البيئة الخارجية الجزئية (Micro)</h4>
+            <span class="text-xs px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-500 font-bold">خاصة / مباشرة</span>
+          </div>
+          <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+            ذات علاقة مباشرة ومستمرة بالمؤسسة، وتتكون من <strong>5 أطراف</strong>:
+          </p>
+          <ul class="text-xs space-y-1.5 text-slate-700 dark:text-slate-300">
+            <li><strong>1. المنافسون:</strong> منافسة مباشرة (إشباع نفس الحاجة) وغير مباشرة (على الموارد).</li>
+            <li><strong>2. الموردون:</strong> يزودون المنشأة بالمواد الخام ويؤثرون في التكلفة والجودة.</li>
+            <li><strong>3. العملاء (5 أسواق):</strong> المستهلكين، الأعمال، إعادة البيع، الحكومية، الدولية.</li>
+            <li><strong>4. الوسطاء:</strong> تجار الجملة والتجزئة، النقل، التخزين، وكالات الإعلان وبحوث التسويق.</li>
+            <li><strong>5. الجمهور العام:</strong> الجماهير المالية، الإعلام، الحكومة، جماعات الضغط.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 2.3 أدوات تحليل البيئة التسويقية ودراسات الحالة (ص 30 - 33) -->
+      <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-5">
+        <h3 class="text-lg font-extrabold flex items-center gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
+          <i class="fa-solid fa-chart-pie text-amber-500"></i>
+          أدوات تحليل البيئة التسويقية ودراسات الحالة (SWOT • PESTEL • Porter's 5 Forces - ص 30-33)
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1">
+            <div class="font-bold text-blue-600 dark:text-blue-400 text-sm">١. مصفوفة SWOT</div>
+            <p class="text-slate-600 dark:text-slate-300">
+              • <strong>داخلياً:</strong> نقاط القوة (Strengths) ونقاط الضعف (Weaknesses).
+              <br>• <strong>خارجياً:</strong> الفرص (Opportunities) والتهديدات (Threats).
+            </p>
+          </div>
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1">
+            <div class="font-bold text-purple-600 dark:text-purple-400 text-sm">٢. تحليل PESTEL</div>
+            <p class="text-slate-600 dark:text-slate-300">
+              تحليل العوامل الـ 6 للبيئة الكلية: السياسية (Political)، الاقتصادية (Economic)، الاجتماعية (Social)، التكنولوجية (Technological)، البيئية (Environmental)، القانونية (Legal).
+            </p>
+          </div>
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1">
+            <div class="font-bold text-amber-600 dark:text-amber-400 text-sm">٣. قوى بورتر الخمس (Porter)</div>
+            <p class="text-slate-600 dark:text-slate-300">
+              1. تهديد دخول منافسين جدد، 2. قوة الموردين، 3. قوة المشترين، 4. تهديد المنتجات البديلة، 5. حدة المنافسة داخل الصناعة.
+            </p>
+          </div>
+          <div class="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 space-y-1">
+            <div class="font-bold text-emerald-600 dark:text-emerald-400 text-sm">٤. دراسات حالة (ص 33)</div>
+            <p class="text-slate-600 dark:text-slate-300">
+              • <strong>شركات نجحت بتحليل البيئة:</strong> Apple (الهواتف الذكية) و Nike (القيم الرياضية والتواصل).
+              <br>• <strong>شركات فشلت لعدم التكيف:</strong> Blockbuster (أمام Netflix) و Kodak (أمام الكاميرات الرقمية).
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         TAB 3: نظم المعلومات التسويقية والمذكرة الإدارية (س3 + س4)
+         ========================================== -->
+    <section id="tab3" class="tab-content hidden space-y-8">
+      <!-- Hero Banner -->
+      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-l from-blue-900 via-indigo-900 to-purple-950 text-white p-6 sm:p-8 shadow-xl">
+        <div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+          <div class="space-y-2 max-w-3xl">
+            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-white/15 backdrop-blur-sm">
+              <i class="fa-solid fa-server"></i> المحور الرابع • الإجابة الكاملة للسؤال (٣) والسؤال (٤ - المذكرة الإدارية)
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-black">نظم المعلومات التسويقية (MKIS): المفهوم، الأهمية، المكونات، والمذكرة الإدارية للمزايا والمساوئ</h2>
+            <p class="text-blue-100 text-sm sm:text-base leading-relaxed">
+              شرح مفصل لتعريف نظام المعلومات التسويقية وأهميته ومكوناته الأربعة، يليه <strong>نموذج مذكرة إدارية رسمية متكاملة الأركان</strong> حول مزايا ومساوئ نظام المعلومات التسويقية جاهزة لكتابتها في الامتحان.
+            </p>
+          </div>
+          <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/15 text-center shrink-0">
+            <div class="text-xs text-blue-200">مكونات نظام المعلومات التسويقية</div>
+            <div class="text-base font-black text-amber-300 mt-1">4 مكونات فرعية متكاملة</div>
+            <div class="text-[11px] text-white mt-1">السجلات الداخلية • الاستخبارات • بحوث التسويق • دعم القرار</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3.1 إجابة السؤال الثالث: تعريف نظام المعلومات التسويقية وأهميته ومكوناته -->
+      <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+        <div class="flex items-center gap-3 border-b border-slate-200 dark:border-slate-800 pb-4">
+          <span class="w-9 h-9 rounded-xl bg-blue-500/15 text-blue-600 dark:text-blue-400 flex items-center justify-center font-black">س٣</span>
+          <div>
+            <h3 class="text-xl font-extrabold">السؤال الثالث: عرف نظام المعلومات التسويقية، واذكر أهميته ومكوناته</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400">إجابة نموذجية مفصلة ومنظمة لعناصر السؤال الثلاثة</p>
+          </div>
+        </div>
+
+        <!-- أولاً: التعريف + ثانياً: الأهمية -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div class="p-5 rounded-2xl bg-blue-500/5 border border-blue-500/20 space-y-3">
+            <h4 class="font-black text-blue-600 dark:text-blue-400 text-base flex items-center gap-2">
+              <i class="fa-solid fa-quote-right"></i>
+              أولاً: تعريف نظام المعلومات التسويقية (Marketing Information System - MKIS)
+            </h4>
+            <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+              • <strong>تعريف فيليب كوتلر (Kotler):</strong> "هو هيكل متفاعل ومستمر يتكون من <strong>الأفراد، والمعدات (الأجهزة والبرمجيات)، والإجراءات</strong> المصممة لجمع، وفرز، وتحليل، وتقييم، وتوزيع المعلومات اللازمة والدقيقة وفي الوقت المناسب لصانعي القرارات التسويقية؛ بهدف تحسين التخطيط والتنفيذ والرقابة التسويقية."
+            </p>
+            <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed border-t border-blue-500/20 pt-2">
+              • <strong>التعريف الوظيفي الشامل:</strong> هو حلقة الوصل المستمرة بين البيئة التسويقية (الداخلية والخارجية) وبين إدارة التسويق، حيث يحول البيانات الخام إلى معلومات تسويقية مجهزة ترشد القرار التسويقي وتقلل من درجة عدم التأكد.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-emerald-500/5 border border-emerald-500/20 space-y-3">
+            <h4 class="font-black text-emerald-600 dark:text-emerald-400 text-base flex items-center gap-2">
+              <i class="fa-solid fa-star"></i>
+              ثانياً: أهمية نظام المعلومات التسويقية
+            </h4>
+            <ul class="text-xs sm:text-sm space-y-1.5 text-slate-700 dark:text-slate-300">
+              <li><strong>1. تقليل المخاطر وعدم التأكد:</strong> استبدال الحدس والتخمين بقرارات علمية مبنية على بيانات دقيقة.</li>
+              <li><strong>2. الاكتشاف المبكر للفرص والتهديدات:</strong> رصد تحركات المنافسين وتغيرات أذواق المستهلكين قبل تفاقم المشكلات.</li>
+              <li><strong>3. دعم تخطيط المزيج التسويقي (4Ps / 7Ps):</strong> توفير معلومات لتسعير المنتجات وتطويرها واختيار قنوات التوزيع والحملات الترويجية.</li>
+              <li><strong>4. تحقيق التكامل والتنسيق:</strong> ربط إدارة التسويق بباقي إدارات المؤسسة (الإنتاج، المالية، المخازن).</li>
+              <li><strong>5. إحكام الرقابة وتقييم الأداء:</strong> متابعة تنفيذ الخطط التسويقية وقياس الحصة السوقية وربحية كل منتج.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ثالثاً: المكونات الأربعة لنظام المعلومات التسويقية -->
+        <div class="space-y-3">
+          <h4 class="font-black text-indigo-600 dark:text-indigo-400 text-base flex items-center gap-2">
+            <i class="fa-solid fa-cubes"></i>
+            ثالثاً: مكونات نظام المعلومات التسويقية (يتكون من 4 أنظمة فرعية متكاملة):
+          </h4>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-xs sm:text-sm">
+            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border-t-4 border-blue-500 space-y-2">
+              <div class="font-black text-blue-600 dark:text-blue-400">١. السجلات والتقارير الداخلية</div>
+              <div class="text-[11px] font-bold text-slate-400">Internal Records System</div>
+              <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                المكون الأساسي الذي يجمع البيانات المتولدة داخل المنظمة مثل: تقارير المبيعات اليومية والدورية، التكاليف، حركة المخزون، الذمم المدينة والدائنة، التدفقات النقدية، وسجلات شكاوى وطلبات العملاء.
+              </p>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border-t-4 border-amber-500 space-y-2">
+              <div class="font-black text-amber-600 dark:text-amber-400">٢. الاستخبارات التسويقية</div>
+              <div class="text-[11px] font-bold text-slate-400">Marketing Intelligence System</div>
+              <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                مجموعة الإجراءات والمصادر التي يستخدمها المديرون للحصول على <strong>معلومات يومية جارية عن التطورات في البيئة التسويقية الخارجية</strong> وتحركات المنافسين (عبر رجال البيع، الموزعين، الصحف، الإنترنت، المعارض).
+              </p>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border-t-4 border-emerald-500 space-y-2">
+              <div class="font-black text-emerald-600 dark:text-emerald-400">٣. بحوث التسويق</div>
+              <div class="text-[11px] font-bold text-slate-400">Marketing Research System</div>
+              <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                الدراسات العلمية الميدانية والمكتبية المتعمقة التي تُجرى <strong>عند ظهور مشكلة تسويقية محددة</strong> أو لدراسة فرصة سوقية معينة (مثل بحث أسباب انخفاض مبيعات سلعة أو اختبار منتج جديد).
+              </p>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border-t-4 border-purple-500 space-y-2">
+              <div class="font-black text-purple-600 dark:text-purple-400">٤. نظم دعم القرارات التسويقية</div>
+              <div class="text-[11px] font-bold text-slate-400">Marketing Decision Support (MDSS)</div>
+              <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                مجموعة متناسقة من البيانات والبرمجيات والأدوات الإحصائية والنماذج الرياضية التي تساعد مديري التسويق على تحليل البيانات وتفسيرها واختبار سيناريوهات البدائل (ماذا لو؟).
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3.2 إجابة السؤال الرابع: المذكرة الإدارية في مزايا ومساوئ نظام المعلومات التسويقية -->
+      <div class="memo-paper bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 border-2 border-indigo-500/40 shadow-lg space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b-2 border-dashed border-slate-300 dark:border-slate-700 pb-5">
+          <div class="flex items-center gap-3">
+            <span class="w-11 h-11 rounded-2xl bg-indigo-600 text-white flex items-center justify-center font-black text-lg">س٤</span>
+            <div>
+              <h3 class="text-xl sm:text-2xl font-black text-indigo-600 dark:text-indigo-400">السؤال الرابع: نموذج المذكرة الإدارية الرسمية</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400">مذكرة إدارية مصاغة بالشكل الأكاديمي الرسمي المطلوب في الامتحان (أ- مزايا النظام، ب- مساوئ النظام)</p>
+            </div>
+          </div>
+          <span class="px-3 py-1 rounded-xl bg-indigo-500/15 text-indigo-600 dark:text-indigo-300 text-xs font-bold">
+            احفظ شكل الترويسة + النقاط!
+          </span>
+        </div>
+
+        <!-- ترويسة المذكرة الإدارية الرسمية -->
+        <div class="p-5 rounded-2xl bg-slate-100 dark:bg-slate-800/90 border border-slate-300 dark:border-slate-700 space-y-3 text-xs sm:text-sm">
+          <div class="text-center font-black text-base sm:text-lg underline decoration-indigo-500 underline-offset-8 mb-3">
+            مذكــرة إداريــة داخليــة
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 font-bold">
+            <div>• إلى السيد / <span class="font-normal">المدير العام للمؤسسة – رئيس مجلس الإدارة.</span></div>
+            <div>• من / <span class="font-normal">مدير إدارة التسويق وبحوث السوق.</span></div>
+            <div>• التاريخ / <span class="font-normal">نوفمبر 2026م.</span></div>
+            <div>• الموضوع / <span class="text-indigo-600 dark:text-indigo-400">بيان مزايا ومساوئ (معوقات) تطبيق نظام المعلومات التسويقية بالمؤسسة.</span></div>
+          </div>
+          <p class="text-slate-600 dark:text-slate-300 pt-2 border-t border-slate-300 dark:border-slate-700 leading-relaxed">
+            <strong>تحية طيبة وبعد،،،</strong><br>
+            في إطار سعي إدارة التسويق نحو تطوير الأداء المؤسسي وترشيد عملية اتخاذ القرارات التسويقية، نتشرف برفع هذه المذكرة الإدارية لسيادتكم لتوضيح أبرز المزايا الإيجابية التي يحققها <strong>نظام المعلومات التسويقية (MKIS)</strong>، وكذلك المساوئ (العيوب والتحديات) المصاحبة لتطبيقه وكيفية التغلب عليها:
+          </p>
+        </div>
+
+        <!-- أ- مزايا نظام المعلومات التسويقية + ب- مساوئ نظام المعلومات التسويقية -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <!-- أ- المزايا -->
+          <div class="p-5 rounded-2xl bg-emerald-500/5 border border-emerald-500/30 space-y-3">
+            <h4 class="font-black text-emerald-600 dark:text-emerald-400 text-base flex items-center gap-2">
+              <i class="fa-solid fa-circle-check"></i>
+              أولاً (أ): مزايا نظام المعلومات التسويقية
+            </h4>
+            <ul class="space-y-2 text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+              <li><strong>1. توفير معلومات دقيقة وشاملة في الوقت المناسب:</strong> يمد الإدارة بتقارير فورية ودورية تساعد في اقتناص الفرص التسويقية بسرعة قبل المنافسين.</li>
+              <li><strong>2. التحول من الإدارة برد الفعل إلى الإدارة بالمبادرة:</strong> التنبؤ باتجاهات السوق والطلب المستقبلي واكتشاف المشكلات التسويقية قبل وقوعها.</li>
+              <li><strong>3. تحقيق التكامل والتنسيق بين الإدارات:</strong> ربط أنشطة التسويق بالإنتاج والمشتريات والمالية والمخازن ومنع تضارب القرارات.</li>
+              <li><strong>4. تعزيز التركيز على المستهلك ورضاه:</strong> التتبع المستمر لرغبات العملاء وشكاويهم مما يرفع من جودة المنتجات والولاء للعلامة التجارية.</li>
+              <li><strong>5. ترشيد النفقات التسويقية على المدى الطويل:</strong> توجيه ميزانيات الترويج والتوزيع نحو القطاعات السوقية الأكثر ربحية وتقليل الهدر.</li>
+              <li><strong>6. حفظ الذاكرة التسويقية للمؤسسة:</strong> تخزين البيانات التاريخية واسترجاعها بسرعة لدعم التخطيط الاستراتيجي والرقابة.</li>
+            </ul>
+          </div>
+
+          <!-- ب- المساوئ / العيوب -->
+          <div class="p-5 rounded-2xl bg-rose-500/5 border border-rose-500/30 space-y-3">
+            <h4 class="font-black text-rose-600 dark:text-rose-400 text-base flex items-center gap-2">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+              ثانياً (ب): مساوئ وعيوب نظام المعلومات التسويقية
+            </h4>
+            <ul class="space-y-2 text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+              <li><strong>1. ارتفاع تكاليف الإنشاء والتشغيل والصيانة:</strong> يتطلب النظام استثمارات مالية كبيرة في الأجهزة والبرمجيات وقواعد البيانات وتحديثها الدوري.</li>
+              <li><strong>2. مشكلة الإغراق أو التكدس المعلوماتي (Information Overload):</strong> تدفق كميات هائلة من البيانات غير المفلترة قد يؤدي إلى تشتيت متخذ القرار وتأخير الحسم.</li>
+              <li><strong>3. الحاجة إلى كفاءات بشرية متخصصة:</strong> يتطلب النظام محللي بيانات وخبراء تسويق وإحصاء، مع تكلفة تدريب مستمرة للعاملين.</li>
+              <li><strong>4. مخاطر أمن المعلومات وتسرب الأسرار التنافسية:</strong> تجميع كافة بيانات العملاء والخطط التسويقية في قاعدة مركزية يجعلها عرضة للاختراق أو التسريب إذا ضعفت الرقابة.</li>
+              <li><strong>5. الاعتماد على بيانات كمية وتاريخية:</strong> قد يغفل النظام بعض العوامل النوعية أو التغيرات الفجائية غير المتوقعة في سلوك المستهلك.</li>
+              <li><strong>6. مقاومة التغيير من بعض العاملين:</strong> تخوف الموظفين من الأتمتة والرقابة الإلكترونية مما قد يعيق دقة إدخال البيانات.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- خاتمة المذكرة -->
+        <div class="p-4 rounded-2xl bg-slate-100 dark:bg-slate-800/80 text-xs sm:text-sm flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div>
+            <strong>التوصية الإدارية:</strong> نوصي بتطبيق النظام بشكل تدريجي، مع تدريب الكوادر البشرية وتطبيق مبدأ "الاستثناء" لمنع التكدس المعلوماتي، وتشديد ضوابط الأمن السيبراني.
+          </div>
+          <div class="font-bold text-indigo-600 dark:text-indigo-400 shrink-0 text-left">
+            وتفضلوا بقبول فائق الاحترام،،،<br>مدير إدارة التسويق
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         TAB 4: بحوث التسويق الشاملة (السؤال الخامس أ، ب، ج، د، هـ)
+         ========================================== -->
+    <section id="tab4" class="tab-content hidden space-y-8">
+      <!-- Hero Banner -->
+      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-l from-amber-900 via-orange-900 to-slate-900 text-white p-6 sm:p-8 shadow-xl">
+        <div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+          <div class="space-y-2 max-w-3xl">
+            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-white/15 backdrop-blur-sm">
+              <i class="fa-solid fa-magnifying-glass-chart"></i> المحور الرابع • الإجابة الكاملة للسؤال الخامس (أ، ب، ج، د، هـ)
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-black">بحوث التسويق (Marketing Research): التعريفات، الأهمية، الأهداف، الأنواع، والخطوات</h2>
+            <p class="text-amber-100 text-sm sm:text-base leading-relaxed">
+              مناقشة شاملة لعبارة: <strong>"(تعتبر بحوث التسويق من الموضوعات المهمة في دراسة مقرر التسويق)"</strong> مع تفصيل العناصر الخمسة المطلوبة في السؤال الخامس + جدول العلاقة بين بحوث التسويق ونظام المعلومات التسويقية (ص 43).
+            </p>
+          </div>
+          <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/15 text-center shrink-0">
+            <div class="text-xs text-amber-200">خطوات البحث التسويقي (ص 42)</div>
+            <div class="text-base font-black text-white mt-1">5 خطوات علمية متسلسلة</div>
+            <div class="text-[11px] text-amber-200 mt-1">تبدأ بتحديد المشكلة وتنتهي بالتقرير والتوصيات</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4.1 أ- تعريفات بحوث التسويق + ب- أهميتها + ج- أهدافها -->
+      <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+        <div class="flex items-center gap-3 border-b border-slate-200 dark:border-slate-800 pb-4">
+          <span class="w-9 h-9 rounded-xl bg-amber-500/15 text-amber-600 dark:text-amber-400 flex items-center justify-center font-black">س٥</span>
+          <div>
+            <h3 class="text-xl font-extrabold">أولاً: تعريفات بحوث التسويق (أ)، وأهميتها (ب)، وأهدافها (ج)</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400">إجابة نموذجية منظمة للنقاط (أ، ب، ج) في السؤال الخامس</p>
+          </div>
+        </div>
+
+        <!-- أ- التعريفات المتعددة لبحوث التسويق -->
+        <div class="space-y-3">
+          <h4 class="font-black text-amber-600 dark:text-amber-400 text-base">أ- تعريفات بحوث التسويق (Definitions of Marketing Research):</h4>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
+            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1.5">
+              <div class="font-bold text-blue-600 dark:text-blue-400">١. تعريف الجمعية الأمريكية للتسويق (AMA)</div>
+              <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                "هي الوظيفة التي تربط المستهلك والعميل والجمهور بالمسوق من خلال المعلومات التي تُستخدم في تحديد الفرص والمشكلات التسويقية، وتوليد وتنقيح وتقييم الأنشطة التسويقية ومراقبة الأداء."
+              </p>
+            </div>
+            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1.5">
+              <div class="font-bold text-emerald-600 dark:text-emerald-400">٢. تعريف فيليب كوتلر (Philip Kotler)</div>
+              <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                "هي التصميم المنهجي لجمع، وتحليل، وتقديم البيانات والنتائج المتعلقة <strong>بموقف تسويقي محدد</strong> أو مشكلة معينة تواجه المؤسسة."
+              </p>
+            </div>
+            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1.5">
+              <div class="font-bold text-purple-600 dark:text-purple-400">٣. التعريف العلمي الشامل</div>
+              <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                "هي الطريقة العلمية الموضوعية والمنظمة في جمع وتسجيل وتحليل البيانات حول المشكلات المتعلقة بتسويق السلع والخدمات؛ بهدف مساعدة الإدارة في اتخاذ قرارات تسويقية سليمة."
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ب- الأهمية + ج- الأهداف -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 pt-2">
+          <div class="p-5 rounded-2xl bg-blue-500/5 border border-blue-500/20 space-y-3">
+            <h4 class="font-black text-blue-600 dark:text-blue-400 text-base flex items-center gap-2">
+              <i class="fa-solid fa-star"></i>
+              ب- أهمية بحوث التسويق
+            </h4>
+            <ul class="space-y-1.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+              <li><strong>1. ترشيد القرارات التسويقية:</strong> تقليل الاعتماد على الحدس والتخمين وتخفيض درجة المخاطرة.</li>
+              <li><strong>2. فهم سلوك ودوافع المستهلك:</strong> معرفة ماذا يشتري المستهلك، ولماذا، ومتى، وكيف، ومن أين.</li>
+              <li><strong>3. اكتشاف الفرص التسويقية الجديدة:</strong> تحديد الحاجات غير المشبعة والأسواق غير المخدومة.</li>
+              <li><strong>4. تقييم كفاءة المزيج التسويقي:</strong> قياس أثر الحملات الإعلانية، ومدى تقبل الأسعار وقنوات التوزيع.</li>
+              <li><strong>5. دعم القدرة التنافسية:</strong> تحليل نقاط قوة وضعف المنافسين وحصصهم السوقية.</li>
+            </ul>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-emerald-500/5 border border-emerald-500/20 space-y-3">
+            <h4 class="font-black text-emerald-600 dark:text-emerald-400 text-base flex items-center gap-2">
+              <i class="fa-solid fa-bullseye"></i>
+              ج- أهداف بحوث التسويق
+            </h4>
+            <ul class="space-y-1.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+              <li><strong>1. تحديد حجم السوق المحتمل والطلب المتوقع:</strong> تقدير المبيعات والحصة السوقية للمؤسسة.</li>
+              <li><strong>2. تشخيص وحل المشكلات التسويقية:</strong> مثل معرفة أسباب انخفاض المبيعات أو تراجع ولاء العملاء.</li>
+              <li><strong>3. اختبار المنتجات الجديدة قبل إطلاقها:</strong> التأكد من ملاءمة مواصفات السلعة وتغليفها لذوق المستهلك.</li>
+              <li><strong>4. قياس درجة رضا الزبائن:</strong> تقييم جودة خدمات ما بعد البيع والانطباع الذهني عن العلامة.</li>
+              <li><strong>5. تحديد أنسب السياسات السعرية والترويجية:</strong> اختيار وسائل الإعلان الأكثر وصولاً للجمهور المستهدف.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4.2 د- أنواع بحوث التسويق + هـ- خطوات بحوث التسويق -->
+      <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+        <!-- د- أنواع بحوث التسويق -->
+        <div class="space-y-4">
+          <h4 class="font-black text-indigo-600 dark:text-indigo-400 text-lg flex items-center gap-2">
+            <i class="fa-solid fa-tags"></i>
+            د- أنواع بحوث التسويق (تصنف وفق 3 معايير رئيسية):
+          </h4>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
+            <div class="p-4 rounded-2xl bg-indigo-500/5 border border-indigo-500/20 space-y-2">
+              <div class="font-black text-indigo-600 dark:text-indigo-400">١. حسب الهدف والغرض من البحث</div>
+              <ul class="space-y-1.5 text-slate-700 dark:text-slate-300">
+                <li>• <strong>بحوث استكشافية (استطلاعية Exploratory):</strong> لجمع معلومات أولية وصياغة الفروض حول مشكلة غامضة.</li>
+                <li>• <strong>بحوث وصفية (Descriptive):</strong> لوصف خصائص السوق والمستهلكين وتحديد تكرار الظواهر التسويقية.</li>
+                <li>• <strong>بحوث سببية (استنتاجية Causal):</strong> لاختبار علاقة السبب والنتيجة (مثل أثر خفض السعر 10% على حجم المبيعات).</li>
+              </ul>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-teal-500/5 border border-teal-500/20 space-y-2">
+              <div class="font-black text-teal-600 dark:text-teal-400">٢. حسب مصدر جمع البيانات</div>
+              <ul class="space-y-1.5 text-slate-700 dark:text-slate-300">
+                <li>• <strong>بحوث مكتبية (Desk Research):</strong> تعتمد على <strong>البيانات الثانوية (Secondary Data)</strong> المنشورة مسبقاً في السجلات والتقارير والإحصاءات الرسمية.</li>
+                <li>• <strong>بحوث ميدانية (Field Research):</strong> تعتمد على <strong>البيانات الأولية (Primary Data)</strong> التي تُجمع لأول مرة من الميدان عبر الاستبيان أو المقابلة أو الملاحظة.</li>
+              </ul>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-amber-500/5 border border-amber-500/20 space-y-2">
+              <div class="font-black text-amber-600 dark:text-amber-400">٣. حسب طبيعة البيانات والتحليل</div>
+              <ul class="space-y-1.5 text-slate-700 dark:text-slate-300">
+                <li>• <strong>بحوث كمية (Quantitative):</strong> تعتمد على الأرقام والعينات الكبيرة والتحليل الإحصائي لإعطاء نتائج قابلة للتعميم.</li>
+                <li>• <strong>بحوث نوعية / كيفية (Qualitative):</strong> تدرس الدوافع النفسية العميقة والاتجاهات عبر مجموعات التركيز (Focus Groups) والمقابلات المتعمقة.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- هـ- خطوات بحوث التسويق (الشكل ص 42) -->
+        <div class="space-y-4 pt-3 border-t border-slate-200 dark:border-slate-800">
+          <h4 class="font-black text-emerald-600 dark:text-emerald-400 text-lg flex items-center gap-2">
+            <i class="fa-solid fa-list-ol"></i>
+            هـ- خطوات بحوث التسويق بالترتيب المنهجي (الشكل ص 42 من المطبوعة):
+          </h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 text-xs">
+            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border-r-4 border-emerald-500 space-y-1">
+              <div class="font-black text-emerald-600 dark:text-emerald-400 text-sm">الخطوة ١: تحديد المشكلة</div>
+              <p class="text-slate-600 dark:text-slate-300">تحديد المشكلة التسويقية بدقة، وصياغة أهداف البحث وفروضه العلمية (التشخيص الصحيح نصف الحل).</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border-r-4 border-blue-500 space-y-1">
+              <div class="font-black text-blue-600 dark:text-blue-400 text-sm">الخطوة ٢: تصميم خطة البحث</div>
+              <p class="text-slate-600 dark:text-slate-300">تحديد مصادر البيانات (ثانوية ثم أولية)، وأدوات الجمع، وتحديد مجتمع الدراسة وحجم ونوع العينة وميزانية البحث.</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border-r-4 border-indigo-500 space-y-1">
+              <div class="font-black text-indigo-600 dark:text-indigo-400 text-sm">الخطوة ٣: جمع البيانات</div>
+              <p class="text-slate-600 dark:text-slate-300">النزول للميدان لجمع البيانات بواسطة الباحثين عبر قوائم الاستقصاء (الاستبيان)، المقابلات، الملاحظة، أو التجارب.</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border-r-4 border-purple-500 space-y-1">
+              <div class="font-black text-purple-600 dark:text-purple-400 text-sm">الخطوة ٤: معالجة وتحليل البيانات</div>
+              <p class="text-slate-600 dark:text-slate-300">مراجعة البيانات وترميزها وجدولتها وتحليلها إحصائياً لاستخلاص المؤشرات واختبار صحة الفروض.</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border-r-4 border-amber-500 space-y-1">
+              <div class="font-black text-amber-600 dark:text-amber-400 text-sm">الخطوة ٥: إعداد التقرير النهائي</div>
+              <p class="text-slate-600 dark:text-slate-300">تفسير النتائج وتقديم التقرير النهائي متضمناً التوصيات والحلول العملية لإدارة التسويق لاتخاذ القرار.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- جدول العلاقة والمقارنة بين بحوث التسويق ونظام المعلومات التسويقية (ص 43) -->
+        <div class="p-4 rounded-2xl bg-slate-100 dark:bg-slate-800/70 space-y-2 text-xs">
+          <div class="font-bold text-sm text-slate-800 dark:text-slate-200">💡 العلاقة والفرق بين "بحوث التسويق" و"نظام المعلومات التسويقية" (الجدول ص 43):</div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <div class="p-3 rounded-xl bg-white dark:bg-slate-900">
+              <strong class="text-amber-600 dark:text-amber-400">بحوث التسويق (Marketing Research):</strong> هي <strong>جزء ومكون فرعي</strong> من نظام المعلومات التسويقية • نشاط <strong>متقطع (غير مستمر)</strong> يبدأ وينتهي بحل مشكلة محددة • تركز غالباً على علاج المشكلات بعد ظهورها.
+            </div>
+            <div class="p-3 rounded-xl bg-white dark:bg-slate-900">
+              <strong class="text-blue-600 dark:text-blue-400">نظام المعلومات التسويقية (MKIS):</strong> هو <strong>النظام الأشمل والأعم</strong> • نشاط <strong>دائم ومستمر</strong> طوال العام • يعمل على منع وقوع المشكلات أصلاً فضلاً عن حلها.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         TAB 5: التخطيط والتخطيط الحكومي (س6 + س7-أ،ب،ج،د + س8)
+         ========================================== -->
+    <section id="tab5" class="tab-content hidden space-y-8">
+      <!-- Hero Banner -->
+      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-l from-indigo-900 via-slate-900 to-emerald-950 text-white p-6 sm:p-8 shadow-xl">
+        <div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+          <div class="space-y-2 max-w-3xl">
+            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-white/15 backdrop-blur-sm">
+              <i class="fa-solid fa-sitemap"></i> إجابة السؤال (٦) والسؤال (٧: أ، ب، ج، د) والسؤال (٨)
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-black">التخطيط والتخطيط الحكومي: المفهوم، الأهمية، الأنواع، المبادئ، المقومات، والخصائص</h2>
+            <p class="text-indigo-100 text-sm sm:text-base leading-relaxed">
+              تغطية متكاملة لجميع أركان السؤال السادس والسؤال الثامن، وتفصيل علمي دقيق لتعليلات صح وغلط الخاصة بالتخطيط والتخطيط الحكومي (تعدد المفاهيم، تعدد الأنواع، المبادئ، وشمول كافة المستويات الإدارية).
+            </p>
+          </div>
+          <div class="grid grid-cols-2 gap-2.5 text-center shrink-0">
+            <div class="bg-white/10 backdrop-blur-md p-3 rounded-2xl border border-white/15">
+              <div class="text-sm font-black text-amber-300">6 محاور</div>
+              <div class="text-[11px] text-indigo-100">في السؤال السادس</div>
+            </div>
+            <div class="bg-white/10 backdrop-blur-md p-3 rounded-2xl border border-white/15">
+              <div class="text-sm font-black text-emerald-300">8 نقاط</div>
+              <div class="text-[11px] text-indigo-100">أهمية التخطيط الحكومي (س8)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5.1 أولاً: مفهوم التخطيط ومفاهيم التخطيط الحكومي (س6 + س7-أ) -->
+      <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-4">
+          <div class="flex items-center gap-3">
+            <span class="w-9 h-9 rounded-xl bg-indigo-500/15 text-indigo-600 dark:text-indigo-400 flex items-center justify-center font-black">1</span>
+            <div>
+              <h3 class="text-xl font-extrabold">أولاً: مفهوم التخطيط وتعدد مفاهيم التخطيط الحكومي (س٦ + س٧-أ)</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400">لماذا تعتبر عبارة "هناك مفهوم واحد فقط للتخطيط الحكومي" عبارة خاطئة (×)؟</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 text-xs sm:text-sm">
+          <div class="p-5 rounded-2xl bg-indigo-500/5 border border-indigo-500/20 space-y-2.5">
+            <h4 class="font-black text-indigo-600 dark:text-indigo-400 text-base">١. المفهوم العام للتخطيط (Planning):</h4>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+              • هو <strong>الوظيفة الإدارية الأولى والأساسية</strong> التي تسبق كافة الوظائف الإدارية الأخرى (التنظيم، التوجيه، الرقابة).
+              <br>• يُعرف بأنه: "عملية ذهنية وفكرية منظمة تعتمد على <strong>التنبؤ بالمستقبل والاستعداد له</strong>، من خلال تحديد الأهداف المراد تحقيقها، ورسم السياسات والإجراءات، والمفاضلة بين البدائل لاختيار أفضل مسار يحقق الأهداف بأقل تكلفة وأعلى كفاءة في ظل الموارد المتاحة."
+              <br>• <strong>ويجيب التخطيط على 4 أسئلة:</strong> ماذا نريد أن نعمل؟ وأين نحن الآن؟ وكيف نصل إلى هدفنا؟ ومتى؟
+            </p>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-emerald-500/5 border border-emerald-500/20 space-y-2.5">
+            <h4 class="font-black text-emerald-600 dark:text-emerald-400 text-base">٢. تعدد مفاهيم التخطيط الحكومي (تعليل س٧-أ):</h4>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+              لا يوجد مفهوم واحد فقط للتخطيط الحكومي، بل <strong>تتعدد مفاهيمه</strong> بتعدد الزوايا التي يُنظر منها إليه:
+              <br>• <strong>المفهوم الاقتصادي:</strong> أسلوب علمي لتوجيه وتعبئة الموارد القومية المادية والبشرية النادرة لإشباع الحاجات العامة وتحقيق التنمية الاقتصادية.
+              <br>• <strong>المفهوم الإداري والسياسي:</strong> عملية رسم السياسات العامة للدولة وترجمتها إلى خطط وبرامج وموازنات زمنية تنفذها الأجهزة الحكومية.
+              <br>• <strong>المفهوم الاجتماعي:</strong> أداة الدولة للتدخل الإيجابي لتحقيق العدالة الاجتماعية وتقليل الفوارق بين الطبقات والأقاليم ورفع مستوى معيشة المواطنين.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5.2 ثانياً: أهمية التخطيط وأهمية التخطيط الحكومي (إجابة س6 + س8 كاملة) -->
+      <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+        <div class="flex items-center gap-3 border-b border-slate-200 dark:border-slate-800 pb-4">
+          <span class="w-9 h-9 rounded-xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-black">س٨</span>
+          <div>
+            <h3 class="text-xl font-extrabold">ثانياً: أهمية التخطيط وتعدد أهمية التخطيط الحكومي (إجابة السؤال الثامن والسادس)</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400">8 نقاط وافية تجيب بشكل كامل على سؤال: "تتعدد أهمية التخطيط الحكومي، اذكر هذه الأهمية"</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-xs sm:text-sm">
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1">
+            <div class="font-black text-emerald-600 dark:text-emerald-400">١. الاستخدام الأمثل للموارد العامة</div>
+            <p class="text-slate-600 dark:text-slate-300">حصر موارد الدولة المادية والمالية والبشرية وتوجيهها نحو الاستخدامات الأكثر كفاءة ومنع الهدر والإسراف في المال العام.</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1">
+            <div class="font-black text-blue-600 dark:text-blue-400">٢. مواجهة عدم التأكد والأزمات</div>
+            <p class="text-slate-600 dark:text-slate-300">التنبؤ بالتقلبات الاقتصادية والاجتماعية المستقبلية ووضع سيناريوهات بديلة للتعامل مع الأزمات الطارئة.</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1">
+            <div class="font-black text-indigo-600 dark:text-indigo-400">٣. تحديد الأولويات الوطنية</div>
+            <p class="text-slate-600 dark:text-slate-300">المفاضلة بين المشروعات العامة وترتيبها حسب درجة إلحاحها وأهميتها للمجتمع (الصحة، التعليم، البنية التحتية).</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1">
+            <div class="font-black text-purple-600 dark:text-purple-400">٤. التنسيق ومنع التضارب والازدواجية</div>
+            <p class="text-slate-600 dark:text-slate-300">تحقيق التكامل والانسجام بين مختلف الوزارات والهيئات الحكومية والإدارات داخل المنظمة لمنع ازدواجية الجهود.</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1">
+            <div class="font-black text-amber-600 dark:text-amber-400">٥. أساس للرقابة وتقييم الأداء</div>
+            <p class="text-slate-600 dark:text-slate-300">لا رقابة بدون تخطيط؛ فالتخطيط يضع المعايير والمؤشرات التي يقاس عليها الأداء الفعلي للأجهزة الحكومية وتصحيح الانحرافات.</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1">
+            <div class="font-black text-teal-600 dark:text-teal-400">٦. تحقيق التنمية المستدامة والعدالة</div>
+            <p class="text-slate-600 dark:text-slate-300">توزيع ثمار التنمية والخدمات العامة بعدالة بين مختلف الأقاليم والفئات الاجتماعية ورفع مستوى الرفاهية.</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1">
+            <div class="font-black text-rose-600 dark:text-rose-400">٧. تحسين جودة الخدمات العامة</div>
+            <p class="text-slate-600 dark:text-slate-300">تطوير أداء المرافق العامة وتبسيط الإجراءات وتقديم خدمات حكومية تلبي توقعات المواطنين بكفاءة.</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1">
+            <div class="font-black text-cyan-600 dark:text-cyan-400">٨. ترشيد إعداد الموازنة العامة</div>
+            <p class="text-slate-600 dark:text-slate-300">ربط الاعتمادات المالية في الموازنة العامة للدولة بأهداف وبرامج محددة قابلة للقياس (موازنة البرامج والأداء).</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5.3 ثالثاً: أنواع التخطيط المتعددة (إجابة س6 + س7-ب + س7-د) -->
+      <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-4">
+          <div>
+            <h3 class="text-xl font-extrabold">ثالثاً: أنواع التخطيط وفقاً للمعايير المختلفة (إجابة س٦ + تعليل س٧-ب و س٧-د)</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400">لماذا تعتبر عبارتا "التخطيط له ثلاثة أنواع فقط" و"التخطيط قاصر على الإدارة العليا فقط" خاطئتين (×)؟</p>
+          </div>
+          <span class="text-xs font-bold px-3 py-1 rounded-full bg-amber-500/15 text-amber-600 dark:text-amber-400">5 تصنيفات رئيسية لأنواع التخطيط</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-xs sm:text-sm">
+          <!-- 1. حسب المستوى الإداري -->
+          <div class="p-4 rounded-2xl bg-rose-500/5 border border-rose-500/30 space-y-2">
+            <div class="font-black text-rose-600 dark:text-rose-400">١. حسب المستوى الإداري (تعليل س٧-د ★)</div>
+            <p class="text-xs text-slate-500">يمارس التخطيط في <strong>جميع المستويات الإدارية</strong> وليس الإدارة العليا فقط:</p>
+            <ul class="space-y-1 text-slate-700 dark:text-slate-300">
+              <li>• <strong>تخطيط استراتيجي:</strong> تمارسه <strong>الإدارة العليا</strong> (يرسم السياسات والأهداف الكلية طويلة الأجل).</li>
+              <li>• <strong>تخطيط تكتيكي:</strong> تمارسه <strong>الإدارة الوسطى</strong> (يترجم الاستراتيجيات لبرامج متوسطة الأجل لكل إدارة).</li>
+              <li>• <strong>تخطيط تشغيلي / تنفيذي:</strong> تمارسه <strong>الإدارة الدنيا/الإشرافية</strong> (جداول العمل اليومية والأسبوعية).</li>
+            </ul>
+          </div>
+
+          <!-- 2. حسب المدى الزمني -->
+          <div class="p-4 rounded-2xl bg-blue-500/5 border border-blue-500/20 space-y-2">
+            <div class="font-black text-blue-600 dark:text-blue-400">٢. حسب المدى الزمني (Time Horizon)</div>
+            <ul class="space-y-1.5 text-slate-700 dark:text-slate-300">
+              <li>• <strong>تخطيط طويل الأجل:</strong> من 5 إلى 10 سنوات فأكثر (لتغيير الهياكل الاقتصادية وبناء المصانع الكبرى).</li>
+              <li>• <strong>تخطيط متوسط الأجل:</strong> من سنة إلى 5 سنوات (مثل الخطط الخمسية للدولة).</li>
+              <li>• <strong>تخطيط قصير الأجل:</strong> سنة فأقل (الخطط السنوية والموازنات الجارية).</li>
+            </ul>
+          </div>
+
+          <!-- 3. حسب النطاق الجغرافي -->
+          <div class="p-4 rounded-2xl bg-emerald-500/5 border border-emerald-500/20 space-y-2">
+            <div class="font-black text-emerald-600 dark:text-emerald-400">٣. حسب النطاق الجغرافي والشمول</div>
+            <ul class="space-y-1.5 text-slate-700 dark:text-slate-300">
+              <li>• <strong>تخطيط قومي شامل:</strong> يشمل كافة قطاعات وأقاليم الدولة.</li>
+              <li>• <strong>تخطيط إقليمي:</strong> يركز على تنمية إقليم جغرافي معين لتقليل الفوارق.</li>
+              <li>• <strong>تخطيط محلي:</strong> على مستوى المحافظات والمدن والوحدات المحلية.</li>
+              <li>• <strong>تخطيط قطاعي / جزئي:</strong> يركز على قطاع محدد (الزراعة، الصناعة، السياحة).</li>
+            </ul>
+          </div>
+
+          <!-- 4. حسب المجال الوظيفي -->
+          <div class="p-4 rounded-2xl bg-purple-500/5 border border-purple-500/20 space-y-2">
+            <div class="font-black text-purple-600 dark:text-purple-400">٤. حسب المجال الوظيفي في المنظمة</div>
+            <ul class="space-y-1 text-slate-700 dark:text-slate-300">
+              <li>• <strong>التخطيط التسويقي:</strong> خطط المبيعات والترويج والتسعير والتوزيع.</li>
+              <li>• <strong>التخطيط الإنتاجي:</strong> جدولة الإنتاج والمواد الخام.</li>
+              <li>• <strong>التخطيط المالي:</strong> الموازنات التقديرية والتدفقات النقدية.</li>
+              <li>• <strong>تخطيط الموارد البشرية:</strong> الاحتياجات من العمالة والتدريب.</li>
+            </ul>
+          </div>
+
+          <!-- 5. حسب درجة الإلزام والمركزية -->
+          <div class="p-4 rounded-2xl bg-amber-500/5 border border-amber-500/20 space-y-2 md:col-span-2">
+            <div class="font-black text-amber-600 dark:text-amber-400">٥. حسب درجة الإلزام والمركزية في التخطيط الحكومي</div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-slate-700 dark:text-slate-300">
+              <div>• <strong>التخطيط الآمر (الإلزامي) والمركزي:</strong> تضع فيه الدولة أهدافاً ومستهدفات ملزمة قانوناً لجميع الوحدات الإنتاجية والإدارية.</div>
+              <div>• <strong>التخطيط التأشيري (التوجيهي) واللامركزي:</strong> يوجه القطاع الخاص والوحدات عبر الحوافز والسياسات المالية والنقدية دون إجبار مباشر.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5.4 رابعاً: المبادئ + خامساً: المقومات + سادساً: الخصائص (س6 + س7-ج) -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- مبادئ التخطيط -->
+        <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
+          <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
+            <h4 class="font-extrabold text-blue-600 dark:text-blue-400">رابعاً: مبادئ التخطيط (س٧-ج ★)</h4>
+            <span class="text-[11px] px-2 py-0.5 rounded bg-blue-500/10 text-blue-500 font-bold">8 مبادئ حاكمة</span>
+          </div>
+          <ul class="text-xs space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed">
+            <li><strong>1. مبدأ الواقعية:</strong> أن تبنى الخطة على الإمكانيات والموارد الفعلية المتاحة دون مبالغة أو خيال.</li>
+            <li><strong>2. مبدأ الشمولية:</strong> أن تغطي الخطة كافة القطاعات والأنشطة والموارد داخل الدولة أو المنظمة.</li>
+            <li><strong>3. مبدأ المرونة:</strong> قابلية الخطة للتعديل والتكيف عند حدوث ظروف طارئة غير متوقعة.</li>
+            <li><strong>4. مبدأ التكامل والتنسيق:</strong> الترابط بين الخطط الفرعية والجزئية وعدم تعارضها.</li>
+            <li><strong>5. مبدأ الاستمرارية:</strong> التخطيط عملية دائمة ومتصلة لا تنتهي بانتهاء خطة معينة.</li>
+            <li><strong>6. مبدأ المشاركة:</strong> إشراك المستويات التنفيذية والعاملين في إعداد الخطة لضمان التزامهم بها.</li>
+            <li><strong>7. مبدأ ترتيب الأولويات:</strong> البدء بالأهم فالمهم وفقاً لاحتياجات المجتمع والمنظمة.</li>
+            <li><strong>8. مبدأ الإلزام والمتابعة:</strong> الالتزام بتنفيذ الخطة بعد إقرارها ومحاسبة المقصرين.</li>
+          </ul>
+        </div>
+
+        <!-- مقومات التخطيط -->
+        <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
+          <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
+            <h4 class="font-extrabold text-emerald-600 dark:text-emerald-400">خامساً: مقومات التخطيط (ركائزه)</h4>
+            <span class="text-[11px] px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-500 font-bold">7 مقومات أساسية</span>
+          </div>
+          <ul class="text-xs space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed">
+            <li><strong>1. توفر البيانات والإحصاءات الدقيقة:</strong> قاعدة معلومات شاملة وصحيحة عن الموارد والاحتياجات.</li>
+            <li><strong>2. وضوح الأهداف ومشروعيتها:</strong> أهداف محددة كمياً وزمنياً وقابلة للتحقيق والقياس (SMART).</li>
+            <li><strong>3. توفر الموارد المالية والمادية:</strong> التمويل الكافي والمعدات اللازمة لوضع الخطة موضع التنفيذ.</li>
+            <li><strong>4. توفر الكفاءات والكوادر البشرية:</strong> خبراء تخطيط وفنيين قادرين على صياغة وتنفيذ البرامج.</li>
+            <li><strong>5. وجود أجهزة تخطيطية متخصصة:</strong> هيئات وإدارات مسؤولة عن إعداد ومتابعة الخطط.</li>
+            <li><strong>6. الدعم السياسي والإداري:</strong> اقتناع والتزام القيادة العليا والسلطة العامة بالخطة.</li>
+            <li><strong>7. الوعي التخطيطي والرقابة الفعالة:</strong> اقتناع العاملين والمواطنين بأهمية التخطيط ومتابعة التنفيذ.</li>
+          </ul>
+        </div>
+
+        <!-- خصائص التخطيط -->
+        <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
+          <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
+            <h4 class="font-extrabold text-amber-600 dark:text-amber-400">سادساً: خصائص التخطيط الجيد</h4>
+            <span class="text-[11px] px-2 py-0.5 rounded bg-amber-500/10 text-amber-500 font-bold">7 خصائص مميزة</span>
+          </div>
+          <ul class="text-xs space-y-2 text-slate-700 dark:text-slate-300 leading-relaxed">
+            <li><strong>1. النظرة المستقبلية (التنبؤية):</strong> يعمل دائماً للمستقبل ويتوقع المتغيرات قبل حدوثها.</li>
+            <li><strong>2. أولوية التخطيط (الأسبقية):</strong> يتصدر كافة الوظائف الإدارية لأنه يحدد الأهداف التي يعمل لأجلها التنظيم والتوجيه والرقابة.</li>
+            <li><strong>3. العمومية والشمول الإداري:</strong> وظيفة يمارسها المديرون في كافة المستويات الإدارية باختلاف نطاقها.</li>
+            <li><strong>4. العلمية والموضوعية:</strong> يقوم على الأسلوب العلمي والتحليل الإحصائي وليس العشوائية.</li>
+            <li><strong>5. الغائية (الهادفة):</strong> يسعى دائماً لتحقيق أهداف محددة وواضحة.</li>
+            <li><strong>6. البساطة والوضوح:</strong> سهولة فهم الخطة من قِبل المنفذين دون غموض أو تعقيد.</li>
+            <li><strong>7. الاقتصاد والكفاءة:</strong> تحقيق أعلى عائد ومنفعة بأقل تكلفة وجهد ووقت ممكن.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         TAB 6: الكبسولة السريعة - إجابات الأسئلة الـ 8 المتوقعة في صفحة واحدة
+         ========================================== -->
+    <section id="tab6" class="tab-content hidden space-y-6">
+      <div class="bg-gradient-to-l from-amber-600 via-orange-600 to-rose-600 text-white rounded-3xl p-6 sm:p-8 shadow-xl">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <span class="text-xs font-bold px-3 py-1 rounded-full bg-white/20">ملخص ليلة الامتحان السريع</span>
+            <h2 class="text-2xl sm:text-3xl font-black mt-2">خريطة الإجابات النموذجية للأسئلة الـ ٨ المحددة في ورقتك</h2>
+            <p class="text-amber-100 text-xs sm:text-sm mt-1">اضغط على أي سؤال لفتح أو طي عناصر الإجابة المرتبة كما تكتبها في ورقة الإجابة تماماً</p>
+          </div>
+          <button onclick="expandAllQuestions()" class="px-4 py-2.5 rounded-xl bg-white text-amber-700 font-bold text-xs shadow hover:bg-amber-50 shrink-0">
+            <i class="fa-solid fa-arrows-up-down ml-1"></i> فتح / طي جميع الأسئلة
+          </button>
+        </div>
+      </div>
+
+      <div id="eight-questions-accordion" class="space-y-4">
+        <!-- Populated by JS -->
+      </div>
+    </section>
+
+    <!-- ==========================================
+         TAB 7: محاكي امتحان الميدتيرم (10 صح وغلط بالتعليل في الحالتين + 2 مقالي)
+         ========================================== -->
+    <section id="tab7" class="tab-content hidden space-y-8">
+      <!-- Exam Header & Scoreboard -->
+      <div class="bg-gradient-to-l from-slate-900 via-indigo-950 to-slate-900 text-white rounded-3xl p-6 sm:p-8 border border-indigo-500/30 shadow-xl">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+          <div class="space-y-2">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="px-3 py-1 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/30 text-xs font-bold">
+                نموذج امتحان الميدتيرم المطابق للمواصفات
+              </span>
+              <span class="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold">
+                ١٠ صح وغلط مع التعليل + سؤالين مقالي
+              </span>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-black">امتحان منتصف الفصل الدراسي - مبادئ التسويق</h2>
+            <p class="text-slate-300 text-xs sm:text-sm">
+              <strong>تعليمات الامتحان:</strong> أجب عن الأسئلة الآتية: (السؤال الأول: ١٠ نقاط صح وغلط <strong>مع التعليل في الحالتين سواء كانت العبارة صحيحة أو خاطئة</strong>) + (السؤال الثاني والثالث: أسئلة مقالية شاملة).
+            </p>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/10 shrink-0">
+            <div class="text-center px-4 border-l border-white/10">
+              <div class="text-xs text-slate-400">درجة صح وغلط والتعليل</div>
+              <div id="exam-score-display" class="text-3xl font-black text-emerald-400 font-mono">0 / 10</div>
+              <div class="text-[11px] text-slate-300 mt-0.5">+ سؤالين مقالي بالأسفل</div>
+            </div>
+            <div class="flex flex-col gap-2">
+              <button onclick="revealAllExamAnswers()" class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-all">
+                <i class="fa-solid fa-eye ml-1"></i> إظهار كافة الإجابات والتعليلات النموذجية
+              </button>
+              <button onclick="resetMarketingExam()" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-slate-200 text-xs font-bold transition-all">
+                <i class="fa-solid fa-rotate-right ml-1"></i> إعادة ضبط الامتحان
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- السؤال الأول: 10 صح وغلط مع التعليل -->
+      <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-4">
+          <div class="flex items-center gap-3">
+            <span class="w-10 h-10 rounded-2xl bg-emerald-600 text-white flex items-center justify-center font-black">أولاً</span>
+            <div>
+              <h3 class="text-xl font-extrabold">السؤال الأول: علق على مدى صحة أو خطأ العبارات الآتية (مع التعليل الكامل في الحالتين)</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400">اختر (صح ✓) أو (خطأ ✗) واكتب تعليلك أو اضغط لعرض التعليل النموذجي الكامل للدرجة النهائية</p>
+            </div>
+          </div>
+          <span class="text-xs font-bold px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400">10 عبارات أساسية بالتعليل</span>
+        </div>
+
+        <div id="exam-tf-container" class="space-y-4"></div>
+      </div>
+
+      <!-- القسم الثاني: السؤالان المقاليان (2 Essay Questions with Model Answers) -->
+      <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-4">
+          <div class="flex items-center gap-3">
+            <span class="w-10 h-10 rounded-2xl bg-blue-600 text-white flex items-center justify-center font-black">ثانياً</span>
+            <div>
+              <h3 class="text-xl font-extrabold">الأسئلة المقالية (سؤالان مقاليان شاملان بنماذج الإجابة النموذجية)</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400">تدرب على كتابة عناصر الإجابة ثم قارن إجابتك بنموذج الإجابة الكامل</p>
+            </div>
+          </div>
+          <span class="text-xs font-bold px-3 py-1 rounded-full bg-blue-500/15 text-blue-600 dark:text-blue-400">سؤالين مقالي (أ، ب)</span>
+        </div>
+
+        <div id="exam-essay-container" class="space-y-6"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-slate-200 dark:border-slate-800 mt-12 py-6 text-center text-xs text-slate-500 dark:text-slate-400">
+    منصة مبادئ التسويق • إعداد ومراجعة شاملة للميدتيرم (شاملة المطبوعة الجامعية والأسئلة الـ 8 المتوقعة) • بالتوفيق والدرجة النهائية!
+  </footer>
+
+  <!-- ==========================================
+       JAVASCRIPT LOGIC & DATA
+       ========================================== -->
+  <script>
+    // 1. Theme Toggle
+    function toggleTheme() {
+      const html = document.documentElement;
+      html.classList.toggle('dark');
+      const isDark = html.classList.contains('dark');
+      document.getElementById('theme-icon').className = isDark
+        ? 'fa-solid fa-sun text-amber-400 text-lg'
+        : 'fa-solid fa-moon text-blue-600 text-lg';
+    }
+
+    // 2. Tab Navigation
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      document.getElementById(tabId).classList.remove('hidden');
+
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('tab-active'));
+      document.getElementById('btn-' + tabId).classList.add('tab-active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // 3. The 8 Expected Questions Summary Accordion (Tab 6)
+    const eightQuestionsData = [
+      {
+        num: 'السؤال الأول',
+        q: '١- اذكر التعريفات المتعددة لمدخل التسويق ومفهومه، ثم تناول تطور المفهوم التسويقي.',
+        a: `
+          <div class="space-y-3 text-xs sm:text-sm leading-relaxed">
+            <div>
+              <strong class="text-emerald-600 dark:text-emerald-400">أولاً: التعريفات المتعددة للتسويق ومفهومه:</strong>
+              <ul class="list-disc list-inside mt-1 space-y-1">
+                <li><strong>التعريف الإداري:</strong> العملية الإدارية التي يتم من خلالها تحديد وتوقع وتلبية احتياجات العملاء بطريقة مربحة.</li>
+                <li><strong>تعريف الجمعية الأمريكية للتسويق (AMA):</strong> الوظيفة التنظيمية ومجموعة العمليات التي تشمل خلق وإيصال وتقديم القيمة للعملاء وإدارة العلاقات معهم بما يفيد المنظمة وأصحاب المصالح.</li>
+                <li><strong>تعريف فيليب كوتلر:</strong> عملية اجتماعية وإدارية يحصل من خلالها الأفراد والمجموعات على ما يحتاجونه ويرغبون فيه من خلال خلق وعرض وتبادل المنتجات ذات القيمة مع الآخرين.</li>
+                <li><strong>تعريف د. محمود حسن عبيدات:</strong> مجموعة الأنشطة الإدارية والاجتماعية الهادفة لخلق وتقديم وتبادل العروض التي تشبع حاجات ورغبات الأفراد من خلال تفاعل المنظمة مع البيئة الخارجية لتحقيق المنفعة للطرفين.</li>
+                <li><strong>المفهوم الشامل:</strong> علم وفن تحديد احتياجات العملاء الحاليين والمحتملين وتطوير منتجات وخدمات ذات قيمة تلبيها عبر عملية إدارية واجتماعية متكاملة لبناء علاقات طويلة الأمد.</li>
+              </ul>
+            </div>
+            <div>
+              <strong class="text-blue-600 dark:text-blue-400">ثانياً: مراحل تطور المفهوم التسويقي (4 مراحل تاريخية):</strong>
+              <ol class="list-decimal list-inside mt-1 space-y-1">
+                <li><strong>مرحلة التوجه الإنتاجي (1900 - 1930):</strong> التركيز على زيادة كمية الإنتاج وتصريف ما تم إنتاجه (لأن الطلب أكبر من العرض)، وتخطيط قصير الأجل.</li>
+                <li><strong>مرحلة التوجه البيعي (1930 - 1950):</strong> ظهور فائض الإنتاج، والتركيز على "بيع ما تم إنتاجه" بأساليب ترويجية وبيعية مكثفة وتخطيط قصير الأجل.</li>
+                <li><strong>مرحلة التوجه التسويقي (بعد 1950):</strong> التركيز على المستهلك أولاً ("إنتاج ما يمكن تسويقه")، ودراسة حاجاته عبر البحوث التسويقية، وتكامل المزيج التسويقي (4Ps)، وتخطيط قصير ومتوسط وطويل الأجل.</li>
+                <li><strong>مرحلة التوجه الاجتماعي للتسويق (1971):</strong> تحقيق التوازن بين 3 أطراف (أرباح المؤسسة + إشباع حاجات المستهلك + مصلحة المجتمع وحماية البيئة والاستدامة).</li>
+              </ol>
+            </div>
+          </div>
+        `
+      },
+      {
+        num: 'السؤال الثاني',
+        q: '٢- ما هو مفهوم التسويق وأهدافه؟ وما هي التوجهات المفاهيمية للتسويق؟',
+        a: `
+          <div class="space-y-3 text-xs sm:text-sm leading-relaxed">
+            <div><strong class="text-emerald-600 dark:text-emerald-400">أولاً: مفهوم التسويق:</strong> علم وفن اكتشاف وترجمة حاجات ورغبات المستهلكين إلى سلع وخدمات تشبعها وتحقق رضا وولاء العميل وأهداف المؤسسة.</div>
+            <div>
+              <strong class="text-blue-600 dark:text-blue-400">ثانياً: أهداف التسويق (تنقسم إلى مجموعتين وفقاً لعبيدات):</strong>
+              <p class="mt-1">• <strong>أ- أهداف التسويق بالنسبة للمؤسسة (7 أهداف):</strong> 1. زيادة الحصة السوقية، 2. تحقيق الأرباح، 3. تطوير العلامة التجارية، 4. فهم احتياجات السوق، 5. تحسين جودة الخدمة، 6. تحقيق الابتكار، 7. بناء علاقات قوية مع العملاء.</p>
+              <p>• <strong>ب- أهداف التسويق بالنسبة للمستهلك (5 أهداف):</strong> 1. تلبية احتياجات المستهلكين، 2. توفير المعلومات الواضحة والدقيقة، 3. تحسين تجربة العميل، 4. تعزيز القيمة المدركة، 5. بناء علاقات طويلة الأمد.</p>
+            </div>
+            <div>
+              <strong class="text-indigo-600 dark:text-indigo-400">ثالثاً: التوجهات المفاهيمية السبعة للتسويق (ص 14):</strong>
+              <p class="mt-1">1. التوجه نحو المستهلك • 2. التوجه نحو القيمة • 3. التوجه نحو العلاقة • 4. التوجه نحو الابتكار • 5. التوجه نحو الاستدامة • 6. التوجه الرقمي • 7. التوجه نحو التحليل والبيانات.</p>
+            </div>
+          </div>
+        `
+      },
+      {
+        num: 'السؤال الثالث',
+        q: '٣- عرف نظام المعلومات التسويقية، واذكر أهميتها ومكوناتها.',
+        a: `
+          <div class="space-y-2 text-xs sm:text-sm leading-relaxed">
+            <p>• <strong>تعريف نظام المعلومات التسويقية (MKIS):</strong> هيكل متفاعل ومستمر من الأفراد والمعدات والإجراءات المصممة لجمع وفرز وتحليل وتقييم وتوزيع المعلومات الدقيقة وفي الوقت المناسب لصانعي القرارات التسويقية لتحسين التخطيط والتنفيذ والرقابة.</p>
+            <p>• <strong>أهميته:</strong> 1. تقليل عدم التأكد والمخاطرة، 2. الاكتشاف المبكر للفرص والتهديدات، 3. دعم قرارات المزيج التسويقي، 4. تحقيق التنسيق بين الإدارات، 5. متابعة وتقييم الأداء التسويقي.</p>
+            <p>• <strong>مكوناته الأربعة:</strong> 1. السجلات والتقارير الداخلية (Internal Records)، 2. الاستخبارات التسويقية (Marketing Intelligence)، 3. بحوث التسويق (Marketing Research)، 4. نظم دعم القرارات التسويقية (MDSS).</p>
+          </div>
+        `
+      },
+      {
+        num: 'السؤال الرابع',
+        q: '٤- اكتب مذكرة إدارية في النقاط الآتية: (أ- مزايا نظام المعلومات التسويقية، ب- مساوئ نظام المعلومات التسويقية).',
+        a: `
+          <div class="space-y-2 text-xs sm:text-sm leading-relaxed">
+            <p>• <strong>ترويسة المذكرة:</strong> (إلى: السيد المدير العام، من: مدير إدارة التسويق، التاريخ: ...، الموضوع: مزايا ومساوئ نظام المعلومات التسويقية).</p>
+            <p>• <strong>أ- المزايا:</strong> 1. توفير معلومات دقيقة وشاملة في الوقت المناسب، 2. التنبؤ بالطلب والتحول للإدارة بالمبادرة، 3. التنسيق والتكامل بين الإدارات، 4. تعزيز رضا وولاء العملاء، 5. ترشيد النفقات التسويقية طويل الأمد، 6. حفظ الذاكرة المؤسسية.</p>
+            <p>• <strong>ب- المساوئ (العيوب):</strong> 1. ارتفاع تكاليف الإنشاء والتشغيل والصيانة، 2. الإغراق والتكدس المعلوماتي (Information Overload)، 3. الحاجة لكفاءات بشرية متخصصة وتدريب مستمر، 4. مخاطر الاختراق وتسرب الأسرار التنافسية، 5. الاعتماد على بيانات تاريخية قد تغفل التغيرات الفجائية، 6. مقاومة التغيير من بعض العاملين.</p>
+          </div>
+        `
+      },
+      {
+        num: 'السؤال الخامس',
+        q: '٥- (تعتبر بحوث التسويق من الموضوعات المهمة في دراسة مقرر التسويق) ناقش: أ- تعريفاتها، ب- أهميتها، ج- أهدافها، د- أنواعها، هـ- خطواتها.',
+        a: `
+          <div class="space-y-2 text-xs sm:text-sm leading-relaxed">
+            <p>• <strong>أ- التعريفات:</strong> الطريقة العلمية الموضوعية والمنظمة في جمع وتسجيل وتحليل البيانات حول موقف تسويقي محدد أو مشكلة تسويقية لترشيد القرار التسويقي (تعريف كوتلر + تعريف AMA).</p>
+            <p>• <strong>ب- الأهمية:</strong> تقليل المخاطر، فهم سلوك ودوافع المستهلك، اكتشاف الفرص السوقية، تقييم فعالية المزيج التسويقي، ودعم الميزة التنافسية.</p>
+            <p>• <strong>ج- الأهداف:</strong> تقدير حجم السوق والحصة السوقية، تشخيص أسباب انخفاض المبيعات، اختبار المنتجات الجديدة، قياس رضا العملاء، وتحديد أنسب الأسعار وقنوات التوزيع.</p>
+            <p>• <strong>د- الأنواع:</strong> (1) حسب الهدف: استكشافية، وصفية، سببية. (2) حسب المصدر: مكتبية (بيانات ثانوية) وميدانية (بيانات أولية). (3) حسب التحليل: كمية ونوعية.</p>
+            <p>• <strong>هـ- الخطوات بالترتيب (5 خطوات):</strong> 1. تحديد المشكلة وأهداف البحث ➔ 2. تصميم خطة البحث وتحديد المصادر والعينة ➔ 3. جمع البيانات والمعلومات ➔ 4. معالجة وتحليل البيانات إحصائياً ➔ 5. تفسير النتائج وإعداد التقرير النهائي والتوصيات.</p>
+          </div>
+        `
+      },
+      {
+        num: 'السؤال السادس',
+        q: '٦- ما هو التخطيط؟ وضح الأهمية، الأنواع، المبادئ، المقومات، والخصائص.',
+        a: `
+          <div class="space-y-2 text-xs sm:text-sm leading-relaxed">
+            <p>• <strong>مفهوم التخطيط:</strong> الوظيفة الإدارية الأولى التي تعني التنبؤ بالمستقبل والاستعداد له بتحديد الأهداف واختيار أفضل البدائل لتحقيقها بأقل تكلفة وأعلى كفاءة.</p>
+            <p>• <strong>الأهمية:</strong> مواجهة عدم التأكد، الاستخدام الأمثل للموارد، التنسيق ومنع التضارب، تحديد الأولويات، وتوفير معايير للرقابة وتقييم الأداء.</p>
+            <p>• <strong>الأنواع:</strong> حسب الزمن (طويل، متوسط، قصير الأجل)، حسب المستوى الإداري (استراتيجي، تكتيكي، تشغيلي)، حسب النطاق (قومي، إقليمي، محلي، قطاعي)، حسب الوظيفة (تسويقي، إنتاجي، مالي، موارد بشرية)، وحسب الإلزام (إلزامي وتأشيري).</p>
+            <p>• <strong>المبادئ:</strong> الواقعية، الشمولية، المرونة، التكامل والتنسيق، الاستمرارية، المشاركة، ترتيب الأولويات، والإلزام.</p>
+            <p>• <strong>المقومات:</strong> دقة البيانات والإحصاءات، وضوح الأهداف، توفر الموارد المالية والبشرية، وجود أجهزة تخطيطية، الدعم السياسي والإداري، والوعي التخطيطي.</p>
+            <p>• <strong>الخصائص:</strong> النظرة المستقبلية، الأسبقية (أولوية التخطيط)، العمومية لجميع المستويات، العلمية والموضوعية، الغائية، البساطة، والاقتصاد.</p>
+          </div>
+        `
+      },
+      {
+        num: 'السؤال السابع',
+        q: '٧- علق على مدى صحة وخطأ العبارات السبعة (أ، ب، ج، د، هـ، و، ي).',
+        a: `
+          <div class="space-y-1.5 text-xs sm:text-sm leading-relaxed">
+            <p>• <strong>أ- هناك مفهوم واحد فقط للتخطيط الحكومي (× خطأ):</strong> تتعدد مفاهيمه (اقتصادي، إداري، اجتماعي، سياسي).</p>
+            <p>• <strong>ب- التخطيط له ثلاثة أنواع فقط (× خطأ):</strong> تتعدد أنواعه وفق عدة معايير (زمني، إداري، جغرافي، وظيفي، درجة الإلزام).</p>
+            <p>• <strong>ج- لا توجد مبادئ للتخطيط الحكومي (× خطأ):</strong> يقوم على مبادئ علمية راسخة (الواقعية، الشمولية، المرونة، التكامل، الاستمرارية، الأولويات).</p>
+            <p>• <strong>د- التخطيط قاصر على الإدارة العليا فقط (× خطأ):</strong> يمارس في كل المستويات (العليا: استراتيجي، الوسطى: تكتيكي، الدنيا: تشغيلي).</p>
+            <p>• <strong>هـ- لا توجد خصائص للبيئة التسويقية (× خطأ):</strong> لها 5 خصائص رئيسية (التعقد، العدائية، عدم التأكد، الاعتمادية، التنوع).</p>
+            <p>• <strong>و- هناك تعريف واحد فقط للتسويق (× خطأ):</strong> تتعدد تعريفاته (كوتلر، AMA، عبيدات، الإداري، الاستراتيجي، الشامل).</p>
+            <p>• <strong>ي- هناك أهداف للتسويق (✓ صح):</strong> أهداف للمؤسسة (زيادة الحصة السوقية، الأرباح، العلامة التجارية، الابتكار...) وأهداف للمستهلك (تلبية الاحتياجات، توفير المعلومات، تحسين التجربة، القيمة المدركة، العلاقات طويلة الأمد).</p>
+          </div>
+        `
+      },
+      {
+        num: 'السؤال الثامن',
+        q: '٨- تتعدد أهمية التخطيط الحكومي، اذكر هذه الأهمية.',
+        a: `
+          <div class="space-y-1.5 text-xs sm:text-sm leading-relaxed">
+            <p>تتمثل أهمية التخطيط الحكومي في النقاط الـ 8 الآتية:</p>
+            <ol class="list-decimal list-inside space-y-1">
+              <li>الاستخدام الأمثل للموارد العامة النادرة وحمايتها من الهدر والإسراف.</li>
+              <li>تحديد الأولويات الوطنية والاجتماعية والمفاضلة العلمية بين المشروعات العامة.</li>
+              <li>تحقيق التنمية الاقتصادية والاجتماعية المستدامة ورفع مستوى معيشة المواطنين.</li>
+              <li>تحقيق العدالة الاجتماعية وتقليل الفوارق التنموية بين الأقاليم.</li>
+              <li>التنسيق والتكامل بين الوزارات والأجهزة الحكومية ومنع الازدواجية والتضارب.</li>
+              <li>مواجهة عدم التأكد والأزمات الاقتصادية المستقبلية بالاستعداد المسبق.</li>
+              <li>ربط الموازنة العامة للدولة ببرامج وأهداف قابلة للقياس وترشيد الإنفاق العام.</li>
+              <li>توفير معايير موضوعية للرقابة والمساءلة وتقييم أداء الأجهزة الحكومية.</li>
+            </ol>
+          </div>
+        `
+      }
+    ];
+
+    let allExpanded = true;
+    function renderEightQuestions() {
+      const container = document.getElementById('eight-questions-accordion');
+      container.innerHTML = eightQuestionsData.map((item, idx) => `
+        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
+          <button onclick="toggleAccordion(${idx})" class="w-full p-4 sm:p-5 text-right flex items-center justify-between hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all">
+            <div class="flex items-center gap-3">
+              <span class="px-3 py-1 rounded-xl bg-amber-500/15 text-amber-600 dark:text-amber-400 font-black text-xs shrink-0">${item.num}</span>
+              <span class="font-extrabold text-sm sm:text-base">${item.q}</span>
+            </div>
+            <i id="acc-icon-${idx}" class="fa-solid fa-chevron-up text-slate-400 transition-transform"></i>
+          </button>
+          <div id="acc-body-${idx}" class="p-4 sm:p-5 border-t border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-950/50">
+            ${item.a}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function toggleAccordion(idx) {
+      const body = document.getElementById(`acc-body-${idx}`);
+      const icon = document.getElementById(`acc-icon-${idx}`);
+      body.classList.toggle('hidden');
+      icon.className = body.classList.contains('hidden')
+        ? 'fa-solid fa-chevron-down text-slate-400'
+        : 'fa-solid fa-chevron-up text-slate-400';
+    }
+
+    function expandAllQuestions() {
+      allExpanded = !allExpanded;
+      eightQuestionsData.forEach((_, idx) => {
+        const body = document.getElementById(`acc-body-${idx}`);
+        const icon = document.getElementById(`acc-icon-${idx}`);
+        if (allExpanded) {
+          body.classList.remove('hidden');
+          icon.className = 'fa-solid fa-chevron-up text-slate-400';
+        } else {
+          body.classList.add('hidden');
+          icon.className = 'fa-solid fa-chevron-down text-slate-400';
+        }
+      });
+    }
+
+    // ==========================================
+    // 4. MIDTERM EXAM DATA (10 T/F with full justification + 2 Essay Questions)
+    // ==========================================
+    const examTFData = [
+      {
+        q: '١. هناك مفهوم واحد فقط للتخطيط الحكومي.',
+        ans: false,
+        justification: 'العبارة خاطئة (×)؛ لأنه لا يوجد مفهوم واحد للتخطيط الحكومي، بل تتعدد مفاهيمه بتعدد الزوايا التي يُنظر منها إليه؛ فهناك المفهوم الاقتصادي (توجيه الموارد العامة النادرة لإشباع الحاجات العامة وتحقيق التنمية)، والمفهوم الإداري والسياسي (رسم السياسات العامة للدولة وترجمتها إلى خطط وبرامج زمنية)، والمفهوم الاجتماعي (تحقيق العدالة الاجتماعية والرفاهية العامة).'
+      },
+      {
+        q: '٢. التخطيط له ثلاثة أنواع فقط.',
+        ans: false,
+        justification: 'العبارة خاطئة (×)؛ لأن أنواع التخطيط تتعدد وتصنف وفقاً لعدة معايير مختلفة ولا تقتصر على ثلاثة أنواع فقط؛ فهناك تصنيف حسب المدى الزمني (طويل، متوسط، قصير الأجل)، وحسب المستوى الإداري (استراتيجي، تكتيكي، تشغيلي)، وحسب النطاق الجغرافي (قومي شامل، إقليمي، محلي، قطاعي)، وحسب المجال الوظيفي (تسويقي، إنتاجي، مالي، موارد بشرية)، وحسب درجة الإلزام (تخطيط إلزامي/آمر وتخطيط تأشيري/توجيهي).'
+      },
+      {
+        q: '٣. لا توجد مبادئ للتخطيط الحكومي.',
+        ans: false,
+        justification: 'العبارة خاطئة (×)؛ لأن التخطيط الحكومي يقوم على مجموعة راسخة من المبادئ العلمية التي تضمن نجاحه، وأهمها: مبدأ الواقعية، مبدأ الشمولية، مبدأ المرونة، مبدأ التكامل والتنسيق، مبدأ الاستمرارية، مبدأ المشاركة، مبدأ ترتيب الأولويات، ومبدأ الإلزام.'
+      },
+      {
+        q: '٤. التخطيط قاصر على الإدارة العليا فقط.',
+        ans: false,
+        justification: 'العبارة خاطئة (×)؛ لأن التخطيط يتصف بـ "العمومية والشمول الإداري"، فهو وظيفة يمارسها المديرون في جميع المستويات الإدارية ولكن باختلاف طبيعته ومداه؛ حيث تمارس الإدارة العليا (التخطيط الاستراتيجي)، وتمارس الإدارة الوسطى (التخطيط التكتيكي)، وتمارس الإدارة الدنيا/التنفيذية (التخطيط التشغيلي).'
+      },
+      {
+        q: '٥. لا توجد خصائص للبيئة التسويقية.',
+        ans: false,
+        justification: 'العبارة خاطئة (×)؛ لأن البيئة التسويقية تتميز بـ 5 خصائص رئيسية تؤثر في قرارات المنظمة وهي: 1. التعقد (مركبة ومتداخلة)، 2. العدائية (شدة المنافسة وندرة الموارد في البيئة العدائية عكس الهادئة)، 3. عدم التأكد (نقص المعلومات وصعوبة توقع المستقبل)، 4. الاعتمادية (الاعتماد المتبادل على الموارد النادرة)، 5. التنوع (تعدد قطاعات العملاء والموردين والوسطاء).'
+      },
+      {
+        q: '٦. هناك تعريف واحد فقط للتسويق.',
+        ans: false,
+        justification: 'العبارة خاطئة (×)؛ لأنه لا يوجد تعريف واحد فقط للتسويق، بل تتعدد تعريفاته بتطور الفكر التسويقي وتعدد زوايا النظر إليه؛ فهناك التعريف الإداري (تحديد وتوقع وتلبية احتياجات العملاء بطريقة مربحة)، وتعريف الجمعية الأمريكية للتسويق AMA (خلق وإيصال وتقديم القيمة للعملاء وإدارة العلاقات)، وتعريف فيليب كوتلر (عملية اجتماعية وإدارية لتبادل المنتجات ذات القيمة)، وتعريف د. محمود عبيدات (التفاعل مع البيئة الخارجية لإشباع الحاجات وتحقيق المنفعة للطرفين).'
+      },
+      {
+        q: '٧. هناك أهداف للتسويق تسعى كل من المؤسسة والمستهلك إلى تحقيقها.',
+        ans: true,
+        justification: 'العبارة صحيحة (✓)؛ حيث يسعى التسويق إلى تحقيق التوازن بين مجموعتين من الأهداف: أولاً- أهداف التسويق بالنسبة للمؤسسة (1. زيادة الحصة السوقية، 2. تحقيق الأرباح، 3. تطوير العلامة التجارية، 4. فهم احتياجات السوق، 5. تحسين جودة الخدمة، 6. تحقيق الابتكار، 7. بناء علاقات قوية مع العملاء). ثانياً- أهداف التسويق بالنسبة للمستهلك (1. تلبية احتياجاته ورغباته، 2. توفير المعلومات الواضحة والدقيقة، 3. تحسين تجربة العميل، 4. تعزيز القيمة المدركة، 5. بناء علاقات طويلة الأمد).'
+      },
+      {
+        q: '٨. تتعدد أهمية التخطيط الحكومي في ترشيد الموارد وتحقيق التنمية الشاملة.',
+        ans: true,
+        justification: 'العبارة صحيحة (✓)؛ لأن التخطيط الحكومي تتعدد أهميته في: 1. الاستخدام الأمثل للموارد العامة النادرة ومنع الهدر، 2. تحديد الأولويات الوطنية والمفاضلة بين المشروعات، 3. مواجهة عدم التأكد والأزمات المستقبلية، 4. تحقيق التنسيق والتكامل بين الوزارات ومنع الازدواجية، 5. تحقيق التنمية الاقتصادية والاجتماعية المستدامة والعدالة الاجتماعية، 6. توفير معايير موضوعية للرقابة وتقييم أداء الأجهزة الحكومية.'
+      },
+      {
+        q: '٩. تعتبر بحوث التسويق هي النظام الأشمل والأعم، بينما يعتبر نظام المعلومات التسويقية جزءاً فرعياً منها.',
+        ans: false,
+        justification: 'العبارة خاطئة (×)؛ لأن العكس هو الصحيح؛ فنظام المعلومات التسويقية (MKIS) هو النظام الأشمل والمستمر ويتكون من 4 مكونات فرعية هي: (1. السجلات الداخلية، 2. الاستخبارات التسويقية، 3. بحوث التسويق، 4. نظم دعم القرارات التسويقية)، وبالتالي فإن بحوث التسويق هي جزء ومكون فرعي داخل نظام المعلومات التسويقية وتُجرى بشكل متقطع لحل مشكلة محددة.'
+      },
+      {
+        q: '١٠. تقوم الفرضية الأساسية في مرحلة المفهوم التسويقي الحديث (بعد 1950) على "إنتاج ما يمكن تسويقه" بدلاً من "بيع ما تم إنتاجه".',
+        ans: true,
+        justification: 'العبارة صحيحة (✓)؛ لأن المفهوم التسويقي الحديث ينطلق من دراسة وتحديد حاجات ورغبات المستهلكين أولاً عبر بحوث التسويق ثم تطوير المنتجات والمزيج التسويقي المتكامل لإشباعها (إنتاج ما يمكن تسويقه)، على عكس المفهوم الإنتاجي والبيعي اللذين ركزا على إنتاج السلع أولاً ثم محاولة تصريفها وبيعها.'
+      }
+    ];
+
+    const examEssayData = [
+      {
+        title: 'السؤال المقالي الأول (نظم المعلومات التسويقية + بحوث التسويق)',
+        promptA: 'أ) اكتب مذكرة إدارية تتناول فيها مزايا ومساوئ نظام المعلومات التسويقية، موضحاً مفهومه ومكوناته.',
+        promptB: 'ب) "تعتبر بحوث التسويق من الموضوعات المهمة في دراسة مقرر التسويق" — ناقش ذلك موضحاً: (تعريفات بحوث التسويق، أهميتها، أهدافها، أنواعها، وخطواتها بالترتيب).',
+        modelAnswer: `
+          <div class="space-y-4 text-xs sm:text-sm leading-relaxed">
+            <div class="p-4 rounded-xl bg-indigo-500/10 border border-indigo-500/20 space-y-2">
+              <div class="font-black text-indigo-600 dark:text-indigo-400">إجابة الجزئية (أ): نظام المعلومات التسويقية والمذكرة الإدارية:</div>
+              <p>• <strong>تعريف النظام ومكوناته:</strong> هو هيكل متفاعل ومستمر من الأفراد والمعدات والإجراءات لجمع وتحليل وتوزيع المعلومات الدقيقة وفي الوقت المناسب لصانعي القرار التسويقي. ويتكون من <strong>4 مكونات:</strong> (1. السجلات الداخلية، 2. الاستخبارات التسويقية، 3. بحوث التسويق، 4. نظم دعم القرارات التسويقية).</p>
+              <p>• <strong>المذكرة الإدارية:</strong> نكتب الترويسة الرسمية (إلى: المدير العام / من: مدير التسويق / التاريخ / الموضوع: مزايا ومساوئ نظام المعلومات التسويقية)، ثم نذكر:</p>
+              <p><strong>أولاً- المزايا:</strong> (1) توفير معلومات شاملة ودقيقة في الوقت المناسب، (2) استشراف المستقبل والتنبؤ بالطلب، (3) التنسيق والتكامل بين الإدارات، (4) تعزيز رضا وولاء العملاء، (5) ترشيد التكاليف التسويقية على المدى الطويل، (6) حفظ الذاكرة المؤسسية.</p>
+              <p><strong>ثانياً- المساوئ (العيوب):</strong> (1) ارتفاع تكاليف الإنشاء والتشغيل والصيانة، (2) مشكلة الإغراق المعلوماتي (Information Overload)، (3) الحاجة لكفاءات بشرية متخصصة وتدريب مستمر، (4) مخاطر أمن المعلومات وتسرب الأسرار، (5) الاعتماد على بيانات تاريخية قد تغفل التغيرات الفجائية، (6) مقاومة التغيير من بعض العاملين.</p>
+            </div>
+            <div class="p-4 rounded-xl bg-amber-500/10 border border-amber-500/20 space-y-2">
+              <div class="font-black text-amber-600 dark:text-amber-400">إجابة الجزئية (ب): مناقشة بحوث التسويق (العناصر الخمسة):</div>
+              <p>• <strong>1. التعريفات:</strong> التصميم المنهجي والموضوعي لجمع وتحليل وتقديم البيانات المتعلقة بمشكلة أو موقف تسويقي محدد لترشيد القرار التسويقي (كوتلر + AMA).</p>
+              <p>• <strong>2. الأهمية:</strong> تقليل المخاطر وعدم التأكد، فهم سلوك ودوافع المستهلك، اكتشاف الفرص السوقية، تقييم عناصر المزيج التسويقي، ومواجهة المنافسة.</p>
+              <p>• <strong>3. الأهداف:</strong> تقدير حجم السوق والحصة السوقية، تشخيص أسباب تراجع المبيعات، اختبار المنتجات الجديدة، قياس رضا العملاء، وتحديد الأسعار وقنوات التوزيع.</p>
+              <p>• <strong>4. الأنواع:</strong> حسب الهدف (استكشافية، وصفية، سببية)، وحسب المصدر (مكتبية ثانوية، وميدانية أولية)، وحسب التحليل (كمية، ونوعية/كيفية).</p>
+              <p>• <strong>5. الخطوات بالترتيب:</strong> (1) تحديد المشكلة وأهداف البحث، (2) تصميم خطة البحث وتحديد المصادر والعينة، (3) جمع البيانات ميدانياً ومكتبياً، (4) معالجة وتحليل البيانات إحصائياً، (5) تفسير النتائج وإعداد التقرير النهائي والتوصيات.</p>
+            </div>
+          </div>
+        `
+      },
+      {
+        title: 'السؤال المقالي الثاني (مدخل التسويق وتطوره + التخطيط والتخطيط الحكومي)',
+        promptA: 'أ) اذكر التعريفات المتعددة لمدخل التسويق ومفهومه وأهدافه، ثم تناول مراحل تطور المفهوم التسويقي والتوجهات المفاهيمية للتسويق.',
+        promptB: 'ب) ما هو التخطيط؟ وضح أهميته، أنواعه، مبادئه، مقوماته، وخصائصه، مع بيان أهمية التخطيط الحكومي.',
+        modelAnswer: `
+          <div class="space-y-4 text-xs sm:text-sm leading-relaxed">
+            <div class="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 space-y-2">
+              <div class="font-black text-emerald-600 dark:text-emerald-400">إجابة الجزئية (أ): التعريفات، التطور، الأهداف، والتوجهات المفاهيمية:</div>
+              <p>• <strong>التعريفات المتعددة:</strong> التعريف الإداري، تعريف AMA (خلق وإيصال القيمة)، تعريف كوتلر (عملية اجتماعية وإدارية للتبادل)، تعريف د. محمود عبيدات (التفاعل مع البيئة لإشباع الحاجات)، والتعريف الشامل.</p>
+              <p>• <strong>تطور المفهوم التسويقي (4 مراحل):</strong> 1. التوجه الإنتاجي (1900-1930: تصريف ما تم إنتاجه)، 2. التوجه البيعي (1930-1950: بيع ما تم إنتاجه بالترويج المكثف)، 3. التوجه التسويقي (بعد 1950: إنتاج ما يمكن تسويقه والبدء بالمستهلك)، 4. التوجه الاجتماعي (1971: التوازن بين ربح المؤسسة وإشباع المستهلك ومصلحة المجتمع والبيئة).</p>
+              <p>• <strong>أهداف التسويق:</strong> للمؤسسة (زيادة الحصة السوقية، الأرباح، العلامة التجارية، فهم السوق، جودة الخدمة، الابتكار، علاقات العملاء)، وللمستهلك (تلبية الاحتياجات، توفير المعلومات، تحسين التجربة، القيمة المدركة، العلاقات طويلة الأمد).</p>
+              <p>• <strong>التوجهات المفاهيمية (7 توجهات):</strong> التوجه نحو المستهلك، القيمة، العلاقة، الابتكار، الاستدامة، الرقمي، والتحليل والبيانات.</p>
+            </div>
+            <div class="p-4 rounded-xl bg-blue-500/10 border border-blue-500/20 space-y-2">
+              <div class="font-black text-blue-600 dark:text-blue-400">إجابة الجزئية (ب): أركان التخطيط وأهمية التخطيط الحكومي:</div>
+              <p>• <strong>مفهوم التخطيط:</strong> الوظيفة الإدارية الأولى التي تقوم على التنبؤ بالمستقبل والاستعداد له بتحديد الأهداف واختيار أفضل البدائل لتحقيقها بأقل تكلفة وأعلى كفاءة.</p>
+              <p>• <strong>الأهمية (وأهمية التخطيط الحكومي):</strong> الاستخدام الأمثل للموارد النادرة ومنع الهدر، تحديد الأولويات الوطنية، مواجهة عدم التأكد والأزمات، التنسيق بين الوزارات والإدارات ومنع التضارب، تحقيق التنمية المستدامة والعدالة الاجتماعية، وتوفير معايير للرقابة وتقييم الأداء.</p>
+              <p>• <strong>الأنواع:</strong> حسب الزمن (طويل، متوسط، قصير)، حسب المستوى الإداري (استراتيجي، تكتيكي، تشغيلي)، حسب النطاق (قومي، إقليمي، محلي، قطاعي)، حسب الوظيفة (تسويقي، إنتاجي، مالي، أفراد)، وحسب الإلزام (إلزامي وتأشيري).</p>
+              <p>• <strong>المبادئ:</strong> الواقعية، الشمولية، المرونة، التكامل، الاستمرارية، المشاركة، ترتيب الأولويات، والإلزام.</p>
+              <p>• <strong>المقومات:</strong> دقة البيانات والإحصاءات، وضوح الأهداف، توفر الموارد المالية والبشرية، الأجهزة التخطيطية، الدعم السياسي والإداري، والوعي التخطيطي.</p>
+              <p>• <strong>الخصائص:</strong> النظرة المستقبلية، الأسبقية على باقي الوظائف، العمومية لكل المستويات، العلمية والموضوعية، البساطة، والاقتصاد.</p>
+            </div>
+          </div>
+        `
+      }
+    ];
+
+    let userExamTF = new Array(10).fill(null);
+
+    function renderMarketingExam() {
+      // Render 10 T/F with Justification
+      const tfContainer = document.getElementById('exam-tf-container');
+      tfContainer.innerHTML = examTFData.map((item, idx) => `
+        <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-3">
+          <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3">
+            <div class="font-extrabold text-sm sm:text-base text-slate-800 dark:text-slate-100">${item.q}</div>
+            <div class="flex items-center gap-2 shrink-0">
+              <button onclick="answerMarketingTF(${idx}, true)" id="mkt-tf-${idx}-true" class="px-4 py-2 rounded-xl text-xs font-bold border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 hover:border-emerald-500 transition-all">
+                ✓ العبارة صحيحة
+              </button>
+              <button onclick="answerMarketingTF(${idx}, false)" id="mkt-tf-${idx}-false" class="px-4 py-2 rounded-xl text-xs font-bold border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 hover:border-rose-500 transition-all">
+                ✗ العبارة خاطئة
+              </button>
+              <button onclick="toggleTFJustification(${idx})" class="px-3 py-2 rounded-xl text-xs font-bold bg-indigo-500/15 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-500/25 transition-all">
+                نموذج التعليل
+              </button>
+            </div>
+          </div>
+          <div>
+            <input type="text" placeholder="اكتب تعليلك باختصار هنا للتدريب قبل إظهار التعليل النموذجي..." class="w-full px-3.5 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs focus:outline-none focus:border-emerald-500">
+          </div>
+          <div id="mkt-tf-exp-${idx}" class="hidden p-3.5 rounded-xl text-xs sm:text-sm leading-relaxed"></div>
+        </div>
+      `).join('');
+
+      // Render 2 Essay Questions
+      const essayContainer = document.getElementById('exam-essay-container');
+      essayContainer.innerHTML = examEssayData.map((item, idx) => `
+        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-4">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <h4 class="font-black text-base sm:text-lg text-blue-600 dark:text-blue-400">${item.title}</h4>
+            <button onclick="toggleEssayAnswer(${idx})" class="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition-all self-start sm:self-auto">
+              <i class="fa-solid fa-book-open ml-1"></i> إظهار / إخفاء الإجابة النموذجية الكاملة
+            </button>
+          </div>
+          <div class="space-y-2 text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200 bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
+            <div>${item.promptA}</div>
+            <div class="pt-2 border-t border-slate-100 dark:border-slate-800">${item.promptB}</div>
+          </div>
+          <textarea rows="3" placeholder="اكتب العناصر الرئيسية لإجابتك المقالية هنا للتدريب..." class="w-full p-3.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs sm:text-sm focus:outline-none focus:border-blue-500"></textarea>
+          <div id="essay-ans-${idx}" class="hidden pt-2">
+            ${item.modelAnswer}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function answerMarketingTF(idx, val) {
+      userExamTF[idx] = val;
+      const item = examTFData[idx];
+      const btnT = document.getElementById(`mkt-tf-${idx}-true`);
+      const btnF = document.getElementById(`mkt-tf-${idx}-false`);
+      const expEl = document.getElementById(`mkt-tf-exp-${idx}`);
+
+      btnT.className = 'px-4 py-2 rounded-xl text-xs font-bold border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900';
+      btnF.className = 'px-4 py-2 rounded-xl text-xs font-bold border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900';
+
+      const correctBtn = item.ans ? btnT : btnF;
+      const selectedBtn = val ? btnT : btnF;
+
+      correctBtn.className = 'px-4 py-2 rounded-xl text-xs font-bold border border-emerald-500 bg-emerald-600 text-white';
+      if (val !== item.ans) {
+        selectedBtn.className = 'px-4 py-2 rounded-xl text-xs font-bold border border-rose-500 bg-rose-600 text-white';
+      }
+
+      expEl.classList.remove('hidden');
+      expEl.className = val === item.ans
+        ? 'p-3.5 rounded-xl text-xs sm:text-sm leading-relaxed bg-emerald-500/10 text-emerald-800 dark:text-emerald-200 border border-emerald-500/30'
+        : 'p-3.5 rounded-xl text-xs sm:text-sm leading-relaxed bg-rose-500/10 text-rose-800 dark:text-rose-200 border border-rose-500/30';
+      expEl.innerHTML = `<strong>${val === item.ans ? '✓ إجابتك صحيحة!' : '✗ انتبه للخطأ!'} التعليل النموذجي الكامل:</strong><br>${item.justification}`;
+
+      updateMarketingScore();
+    }
+
+    function toggleTFJustification(idx) {
+      const item = examTFData[idx];
+      const expEl = document.getElementById(`mkt-tf-exp-${idx}`);
+      expEl.classList.toggle('hidden');
+      if (!expEl.classList.contains('hidden') && !expEl.innerHTML) {
+        expEl.className = 'p-3.5 rounded-xl text-xs sm:text-sm leading-relaxed bg-indigo-500/10 text-indigo-800 dark:text-indigo-200 border border-indigo-500/30';
+        expEl.innerHTML = `<strong>التعليل النموذجي:</strong><br>${item.justification}`;
+      }
+    }
+
+    function toggleEssayAnswer(idx) {
+      const el = document.getElementById(`essay-ans-${idx}`);
+      el.classList.toggle('hidden');
+    }
+
+    function updateMarketingScore() {
+      let score = 0;
+      userExamTF.forEach((v, i) => {
+        if (v === examTFData[i].ans) score++;
+      });
+      document.getElementById('exam-score-display').textContent = `${score} / 10`;
+    }
+
+    function revealAllExamAnswers() {
+      examTFData.forEach((item, idx) => answerMarketingTF(idx, item.ans));
+      examEssayData.forEach((_, idx) => {
+        document.getElementById(`essay-ans-${idx}`).classList.remove('hidden');
+      });
+    }
+
+    function resetMarketingExam() {
+      userExamTF.fill(null);
+      renderMarketingExam();
+      updateMarketingScore();
+    }
+
+    // Initialize on load
+    window.onload = function () {
+      renderEightQuestions();
+      renderMarketingExam();
+    };
+  </script>
+</body>
+</html>
